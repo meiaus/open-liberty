@@ -1,0 +1,20 @@
+-include= ~../../../ant_build/resources/bnd/bundle.props
+          
+bVersion=1.0.0
+
+Bundle-Name: wssecuritycbh
+Bundle-SymbolicName: com.ibm.ws.wssecurity.example.cbh
+Bundle-Version: ${bVersion}
+Bundle-Description: An PasswordCallbackHandler; version=${bVersion}
+
+WS-TraceGroup: \
+  WSSecurity
+
+Export-Package: \
+ com.ibm.ws.wssecurity.example.cbh
+
+#Include-Resource: \
+#  @./resources!/META-INF/**, \
+#  OSGI-INF=resources/OSGI-INF
+
+allow.bundle-version.override=true

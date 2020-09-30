@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="com.ibm.ws.wssecurity_fat" default="localbuild" basedir=".">
+	<property name="fattest.timeout" value="10800000" />
+	<property name="fat.image.type" value="use-full-image" />
+	<property name="fat.buckets.to.run" value="none" />
+	<import file="../ant_build/public_imports/fat_imports.xml" />
+	<import file="../ant_build/public_imports/rejar_imports.xml" />
+
+	<property name="twas.jars.dir" value="${basedir}/lib" />
+
+    <property name="test.bundle.dir" value="${basedir}/test-bundles/com.ibm.ws.wssecurity.cbh" />
+	<property name="test.bundle.classes.dir" value="${basedir}/build/fat-bundle-classes" />
+
+	<property name="skip.findbugs" value="true" />
+	<property name="unittest.endorsed" value="${basedir}/build/endorsed/lib/"/>
+
+	<target name="pre-build">
+		<!-- Find the latest com.ibm.websphere.javaee.jaxws.2.2_*.jar to copy to build/endorsed/lib --> 
+		<timestampselector property="jaxws.jar">
+		<path>
+			<fileset dir="${basedir}/../build.image/wlp/dev/api/spec">
+				<include name="com.ibm.websphere.javaee.jaxws.2.2_*.jar" />
+			</fileset>
+		</path>
+		</timestampselector>
+		<delete dir="${basedir}/build/endorsed/lib"/>
+		<mkdir dir="${basedir}/build/endorsed/lib"/>
+		<copy todir="${basedir}/build/endorsed/lib" file="${jaxws.jar}"/>
+	</target>
+
+    <target name="foo" depends="package-test-bundle, localbuild" />
+
+    <target name="localbuild" depends="pre-build, init-tasks, compile, package-test-bundle, post-compile, package, build-bucket-single" />
+
+	<target name="addAutoInstallApplications" description="Automatically Install applications on LibertyServer instance creation">
+
+		<mkdir dir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat/dropins" />
+		<copy file="${basedir}/publish/files/nowssec.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat/dropins/nowssec.war" />
+		<copy file="${basedir}/publish/files/untoken.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat/dropins/untoken.war" />
+		<copy file="${basedir}/publish/files/cxfclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat/dropins/cxfclient.war" />
+		<copy file="${basedir}/publish/files/untclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat/dropins/untclient.war" />
+
+		<copy file="${basedir}/publish/files/pwdigest.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.pwdigest/pwdigest.war" />
+		<copy file="${basedir}/publish/files/pwdigestclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.pwdigest/pwdigestclient.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.pwdigest/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/nopassclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat/dropins/nopassclient.war" />
+		<copy file="${basedir}/publish/files/nopassunt.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat/dropins/nopassunt.war" />
+
+		<copy file="${basedir}/publish/files/untoken.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.ssl/dropins/untoken.war" />
+		<copy file="${basedir}/publish/files/untsslclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.ssl/dropins/untsslclient.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.ssl/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+			</fileset>
+			<fileset dir="../com.ibm.ws.wssecurity_fat.cxf/override/autoFVT/cxfclient-policies">
+				<include name="BasicPlcyBA.wsdl" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/derivekeyclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.derived/dropins/derivekeyclient.war" />
+		<copy file="${basedir}/publish/files/derivekey.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.derived/dropins/derivekey.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.derived/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/x509endsuptokensclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.endsuptokens/dropins/endsuptokensclient.war" />
+		<copy file="${basedir}/publish/files/x509endsuptokens.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.endsuptokens/dropins/endsuptokens.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.endsuptokens/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/x509client.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509/dropins/x509client.war" />
+		<copy file="${basedir}/publish/files/x509token.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509/dropins/x509token.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="*Default.jks" />
+			</fileset>
+		</copy>
+		<copy file="${basedir}/publish/files/x509client.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509_1/dropins/x509client.war" />
+		<copy file="${basedir}/publish/files/x509token.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509_1/dropins/x509token.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509_1/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+				<include name="x509Client*.properties" />
+			</fileset>
+		</copy>
+		<copy file="${basedir}/publish/files/x509client.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509_2/x509client.war" />
+		<copy file="${basedir}/publish/files/x509token.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509_2/dropins/x509token.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509_2/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*Default*.jks" />
+				<include name="x509ClientDefault*.properties" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/x509migclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509mig/dropins/x509migclient.war" />
+		<copy file="${basedir}/publish/files/x509migbadclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509mig/dropins/x509migbadclient.war" />
+		<copy file="${basedir}/publish/files/x509migtoken.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509mig/dropins/x509migtoken.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509mig/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+				<include name="x509Client*.properties" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/x509migclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509migsym/dropins/x509migclient.war" />
+		<copy file="${basedir}/publish/files/x509migbadclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509migsym/dropins/x509migbadclient.war" />
+		<copy file="${basedir}/publish/files/x509migtoken.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509migsym/dropins/x509migtoken.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509migsym/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+				<include name="x509Client*.properties" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/callerclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.caller/dropins/callerclient.war" />
+		<copy file="${basedir}/publish/files/callertoken.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.caller/dropins/callertoken.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.caller/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+				<include name="x509Client*.properties" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/callerclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509caller/dropins/callerclient.war" />
+		<copy file="${basedir}/publish/files/callertoken.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509caller/dropins/callertoken.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509caller/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+				<include name="x509Client*.properties" />
+			</fileset>
+		</copy>
+		<copy file="${basedir}/publish/files/callerclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509symcaller/dropins/callerclient.war" />
+		<copy file="${basedir}/publish/files/callertoken.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509symcaller/dropins/callertoken.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509symcaller/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+				<include name="x509Client*.properties" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/x509aSync.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509async/dropins/x509aSync.war" />
+		<copy file="${basedir}/publish/files/x509aSyncclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509async/dropins/x509aSyncclient.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509async/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="x509ServerDefault.jks" />
+				<include name="dsig-receiver.ks" />
+				<include name="dsig-sender.ks" />
+				<include name="wssecfvt2-rsa.ks" />
+				<include name="enc-sender.jceks" />
+				<include name="enc-receiver.jceks" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/x509sig.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509sig/dropins/x509sig.war" />
+		<copy file="${basedir}/publish/files/x509sigclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509sig/dropins/x509sigclient.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509sig/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="x509ServerDefault.jks" />
+				<include name="dsig-receiver.ks" />
+				<include name="dsig-sender.ks" />
+				<include name="wssecfvt2-rsa.ks" />
+				<include name="enc-sender.jceks" />
+				<include name="enc-receiver.jceks" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/x509enc.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509enc/dropins/x509enc.war" />
+		<copy file="${basedir}/publish/files/x509encclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509enc/dropins/x509encclient.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509enc/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="enc-sender.jceks" />
+				<include name="enc-receiver.jceks" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/wss11sig.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wss11sig/dropins/wss11sig.war" />
+		<copy file="${basedir}/publish/files/wss11sigclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wss11sig/dropins/wss11sigclient.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wss11sig/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="dsig-sender.ks" />
+				<include name="dsig-receiver.ks" />
+				<include name="enc-sender.jceks" />
+				<include name="enc-receiver.jceks" />
+				<include name="intca2.cer" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/wss11enc.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wss11enc/dropins/wss11enc.war" />
+		<copy file="${basedir}/publish/files/wss11encclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wss11enc/dropins/wss11encclient.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wss11enc/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="dsig-sender.ks" />
+				<include name="dsig-receiver.ks" />
+				<include name="enc-sender.jceks" />
+				<include name="enc-receiver.jceks" />
+				<include name="intca2.cer" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/wsstemplatesclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wsstemplates/dropins/wsstemplatesclient.war" />
+		<copy file="${basedir}/publish/files/wsstemplates.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wsstemplates/dropins/wsstemplates.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wsstemplates/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+				<include name="x509Client*.properties" />
+			</fileset>
+		</copy>
+		<copy file="${basedir}/publish/files/wsstemplatesclientwithep.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wsstemplateswithep/dropins/wsstemplatesclient.war" />
+		<copy file="${basedir}/publish/files/wsstemplateswithep.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wsstemplateswithep/dropins/wsstemplates.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.wsstemplateswithep/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+				<include name="x509Client*.properties" />
+			</fileset>
+		</copy>
+		<echo message="Copying to com.ibm.ws.wssecurity_fat.x509crl" />
+		<copy file="${basedir}/publish/files/x509crl.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509crl/testApps/x509crl.war" />
+		<copy file="${basedir}/publish/files/x509crlclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509crl/testApps/x509crlclient.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509crl/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="myx509p.cer" />
+				<include name="myx509n.cer" />
+				<include name="myx509crl.crl" />
+				<include name="myx509.ks" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/mustunderstand.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.mustunderstand/dropins/mustunderstand.war" />
+		<copy file="${basedir}/publish/files/mustunderstandclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.mustunderstand/dropins/mustunderstandclient.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.mustunderstand/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="dsig-sender.ks" />
+				<include name="dsig-receiver.ks" />
+				<include name="enc-sender.jceks" />
+				<include name="enc-receiver.jceks" />
+			</fileset>
+		</copy>
+
+		<copy file="${basedir}/publish/files/sha2sig.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sha2sig/dropins/sha2sig.war" />
+		<copy file="${basedir}/publish/files/sha2sigclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sha2sig/dropins/sha2sigclient.war" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sha2sig/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="dsig-receiver*.ks" />
+				<include name="dsig-sender*.ks" />
+				<include name="enc-sender.jceks" />
+				<include name="enc-receiver.jceks" />
+				<include name="x509*.jks" />
+			</fileset>
+		</copy>
+
+		<!-- setting the webcontent sample test and for interop as well -->
+		<echo message="copy WSSampleSei files" />
+		<mkdir dir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sample/apps" />
+		<copy file="${basedir}/publish/files/webcontentprovider.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sample/dropins/webcontentprovider.war" />
+		<unzip src="${basedir}/publish/files/webcontentclient.zip" dest="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sample/apps/webcontent" overwrite="true" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sample/apps/webcontent/">
+			<fileset dir="${basedir}/test-applications/webcontentprovider/resources/WEB-INF/" includes="**/*.wsdl" />
+		</copy>
+		<copy file="${basedir}/publish/files/WSSampleSei.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sample/dropins/WSSampleSei.war" />
+		<mkdir dir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sample/apps/WSSampleSeiClient" />
+		<unzip src="${basedir}/publish/files/WSSampleSeiClient.zip" dest="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sample/apps/WSSampleSeiClient" overwrite="true" />
+		<!-- copy the wsdl files -->
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sample/apps/WSSampleSeiClient/">
+			<fileset dir="${basedir}/test-applications/WSSampleSei/resources/WEB-INF/wsdl/" includes="**/*.wsdl" />
+		</copy>
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.sample/">
+			<fileset dir="${basedir}/securitykeys">
+				<include name="key.jks" />
+				<include name="sslServerTrust.jks" />
+				<include name="x509*.jks" />
+			</fileset>
+		</copy>
+
+		<mkdir dir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.saml.twas/dropins" />
+		<!--copy file="${basedir}/publish/files/samlcxfclient.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.saml.twas/dropins/samlcxfclient.war" overwrite="true" /-->
+		<copy file="${basedir}/publish/files/samltoken.zip" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.saml.twas/dropins/samltoken.war" overwrite="true" />
+		<copy todir="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.saml.twas/">
+			<fileset dir="${basedir}/../com.ibm.ws.security.saml.sso_fat.common/securitykeys">
+				<include name="**.jks" />
+			</fileset>
+		</copy>
+
+		<echo message="copying.........." />
+		<copy todir="${basedir}/publish/lib">
+			<fileset dir="../build.image/wlp/dev/api/spec" includes="com.ibm.websphere.javaee.jaxws.2.2_*.jar"/>
+		</copy>
+		<!--
+        <copy toDir="${basedir}/build/classes">
+            <fileset dir="${basedir}/twas-policies/unt01">
+                <include name="META-INF/**"/>
+            </fileset>
+            <fileset dir="${basedir}/twas-policies/xmlsig">
+                <include name="META-INF/**"/>
+            </fileset>
+            <fileset dir="${basedir}/twas-policies/xmlenc">
+                <include name="META-INF/**"/>
+            </fileset>
+            <fileset dir="${basedir}/twas-policies/wssec11">
+               <include name="META-INF/**"/>
+            </fileset>
+            <fileset dir="${basedir}/twas-policies/mustunderstand">
+               <include name="META-INF/**"/>
+            </fileset>
+            <fileset dir="${basedir}/twas-policies/xmlsigCRLX509">
+               <include name="META-INF/**"/>
+            </fileset>
+            <fileset dir="${basedir}/twas-policies/sha2sig">
+               <include name="META-INF/**"/>
+            </fileset>
+        </copy>
+    	-->
+		<!-- Update keystore location in bindings.xml files -->
+		<!--
+        <replace dir="${basedir}/build/classes/META-INF">
+            <include name="**/bindings.xml"/>
+            <replacefilter token="WSSEC_KEYSTORE_LOCATION" value="${basedir}/securitykeys"/>
+        </replace>
+-->
+
+	</target>
+
+	<target name="addRequiredLibraries">
+		<echo message="required.lib.dir is set to: ${required.lib.dir}" />
+		<echo message="twas.jars.dir is set to: ${twas.jars.dir}" />
+		<copy todir="${required.lib.dir}" overwrite="yes">
+			<!-- chc fileset dir="${twas.jars.dir}" includes="org.apache.axis2.jar" / -->
+			<fileset dir="${shared.httpunit.jars}" includes="*.jar" />
+			<fileset dir="lib" includes="jsse.jar" />
+			<fileset dir="${ibm.httpunit.jar.dir}" includes="${ibm.httpunit.jar.name}" />
+			<fileset dir="lib" includes="TraceSettings.properties" />
+		</copy>
+	</target>
+
+	<target name="build-bucket-single" depends="init-test-tasks, compile, package-test-applications, addAutoInstallApplications, addRequiredLibraries" description="build bucket single">
+
+		<delete file="../build.image/wlp/lib/features/wsseccbh-1.0.mf" failonerror="false" />
+
+		<!-- cleans existing autoFVT stuff if it already exists -->
+		<available property="autofvt.exists" file="autoFVT" type="dir" />
+		<if if="autofvt.exists">
+			<echo>Cleaning existing project</echo>
+			<delete dir="autoFVT" />
+		</if>
+
+		<echo message="copy the test bundles" />
+		<mkdir dir="${basedir}/publish/bundles" />
+		<echo message="test.bundle.output.dir: ${test.bundle.output.dir}"/>
+		<copy todir="${basedir}/publish/bundles/" overwrite="true">
+			<fileset dir="${test.bundle.output.dir}">
+				<include name="**" />
+			</fileset>
+		</copy>
+
+		<property name="testbuild.dir" location="../test_build" />
+		<mkdir dir="build/lib" />
+
+		<!-- Determine if this target was entered to process zautoFVT.zip -->
+		<!-- This is done by checking build.type which is set by the caller. -->
+		<!-- If processing zautoFVT.zip set a property as a flag. -->
+		<condition property="processing.zfat">
+			<or>
+				<contains string="${build.type}" substring="zfattest" />
+				<contains string="${build.type}" substring="zunittest" />
+			</or>
+		</condition>
+
+		<!-- If processing zautoFVT.zip set then set property holding the zip name -->
+		<!-- to zautoFVT.zip.  Otherwise set to autoFVT.zip. -->
+		<if if="processing.zfat">
+			<property name="autofvt.zipfile" location="build/lib/zautoFVT.zip" />
+			<else>
+				<property name="autofvt.zipfile" location="build/lib/autoFVT.zip" />
+			</else>
+		</if>
+
+		<!-- Works out what tests to run for the autoFVT.zip-->
+		<condition property="filesToFind" value="FATSuiteLite.class;FATSuite.class;FATTest.class" else="FATSuite.class;FATTest.class">
+			<or>
+				<not>
+					<isset property="fat.test.mode" />
+				</not>
+				<equals arg1="${fat.test.mode}" arg2="lite" casesensitive="false" trim="true" />
+			</or>
+		</condition>
+		<!-- Works out what tests to run for the autoFVT.zip-->
+		<scanJars entry="entry.point" filesToFind="${filesToFind}">
+			<fileset dir="build/lib" includes="**.jar" excludes="autoFVT.zip" />
+		</scanJars>
+
+		<echo message="entry point: ${entry.point}" />
+
+		<!-- The name of the test bucket  -->
+		<property name="test.bucket.name" value="${entry.point}" />
+
+		<!-- The entry point of the BVT/FVT/FAT  buckets.  This class must have a public, static, no-argument method called suite() that returns a junit.framework.Test. -->
+		<property name="test.bucket.class" value="${entry.point}" />
+
+		<!-- Output the properties to a file to be picked up in autoFVT.zip  -->
+		<property name="testinfo.properties" location="build/testinfo.properties" />
+		<propertyfile file="${testinfo.properties}">
+			<entry key="test.bucket.name" value="${entry.point}" />
+			<entry key="test.bucket.class" value="${entry.point}" />
+		</propertyfile>
+		<echo>Created ${testinfo.properties}</echo>
+
+		<echo>Getting Shared stuff from ${build.dir}/classes</echo>
+		<jar destfile="build/lib/util.jar" update="true" basedir="${build.dir}/classes" includes="**/SharedTools.class">
+		</jar>
+		<copy file="build/lib/util.jar" tofile="${basedir}/publish/servers/com.ibm.ws.wssecurity_fat.x509crl/testApps/util.jar" />
+
+		<zip destfile="${autofvt.zipfile}">
+			<zipfileset dir="build/lib" includes="**" excludes="autoFVT.zip zautoFVT.zip" prefix="autoFVT/build/lib" />
+			<zipfileset dir="build/classes" includes="**" prefix="autoFVT/build/classes" />
+			<zipfileset dir="test" includes="*.*" prefix="autoFVT" erroronmissingdir="false" />
+			<zipfileset dir="${fat.bootstrap.path}" includes="**/*" excludes=".jazzignore, .gitignore" prefix="autoFVT" />
+			<zipfileset dir="${componenttest.lib.dir}" includes="componenttest*.*" prefix="autoFVT/lib" />
+			<zipfileset dir="${fattest.lib.dir}" includes="fattest*.*" prefix="autoFVT/lib" />
+			<zipfileset dir="${testbuild.dir}/lib" prefix="autoFVT/lib" includes="junit.jar" />
+			<zipfileset dir="${required.lib.dir}" prefix="autoFVT/lib" includes="**" erroronmissingdir="false" />
+			<zipfileset dir="publish/files" includes="**/*" prefix="autoFVT/lib/LibertyFATTestFiles" erroronmissingdir="false" />
+			<zipfileset dir="publish" includes="**/*" excludes="files/ , servers/**/.jazzignore" prefix="autoFVT/publish" erroronmissingdir="false" />
+			<zipfileset dir="${build_autoFVT}/../" includes="*.jar" prefix="autoFVT/lib" erroronmissingdir="false" />
+			<zipfileset dir="build" includes="testinfo.properties" prefix="autoFVT/build" />
+			<zipfileset dir="${basedir}/../ant_build/lib/" includes="infra.buildtasks*.jar" prefix="autoFVT/build/lib" />
+			<zipfileset dir="${basedir}/../prereq.published/lib/" prefix="autoFVT/build/lib" includes="com.ibm.ws.junit.extensions.jar" />
+			<zipfileset dir="${basedir}/securitykeys/" prefix="autoFVT/securitykeys" includes="**/*" />
+			<zipfileset dir="${basedir}/lib" includes="TraceSettings.properties" prefix="autoFVT/build/lib" />
+			<zipfileset dir="${basedir}/lib" includes="TraceSettings.properties" prefix="autoFVT" />
+			<zipfileset dir="${basedir}/lib" includes="TraceSettings.properties" prefix="autoFVT/properties" />
+			<zipfileset dir="../build.image/wlp/lib" includes="com.ibm.ws.org.apache.commons.io_1.0.${micro.version}.jar" prefix="autoFVT/lib" />
+
+
+		</zip>
+		<echo message="&lt;unzip src=&quot;${autofvt.zipfile}&quot; dest=&quot;.&quot; \/&gt;" />
+		<echo message="Created Custom zip file ${autofvt.zipfile}" />
+	</target>
+
+</project>
