@@ -33,6 +33,8 @@ import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebRequest;
 import com.meterware.httpunit.WebResponse;
 
+//4/2021
+import componenttest.annotation.AllowedFFDC;
 //Added 10/2020
 import componenttest.annotation.Server;
 import componenttest.custom.junit.runner.FATRunner;
@@ -152,6 +154,8 @@ public class CxfCallerX509AsymTests {
      *
      */
 
+    //4/2021
+    @AllowedFFDC(value = { "java.net.MalformedURLException", "java.lang.ClassNotFoundException" })
     @Test
     public void testCxfCallerX509TokenPolicy() throws Exception {
 
@@ -185,10 +189,9 @@ public class CxfCallerX509AsymTests {
      * Test a Caller X509 Token
      *
      */
-<<<<<<< HEAD
 
-=======
->>>>>>> a50efb9184 (update errmsg flag, java2 permissions)
+    //4/2021
+    @AllowedFFDC(value = { "java.net.MalformedURLException" })
     @Test
     public void testCxfCallerX509TransportEndorsingPolicy() throws Exception {
         // In case, the sequence on test cases are random... then need to unmark next line
@@ -222,6 +225,8 @@ public class CxfCallerX509AsymTests {
      *
      */
 
+    //4/2021
+    @AllowedFFDC(value = { "java.net.MalformedURLException" })
     @Test
     public void testCxfCallerHttpPolicyInX509() throws Exception {
 
@@ -257,6 +262,8 @@ public class CxfCallerX509AsymTests {
      *
      */
 
+    //4/2021
+    @AllowedFFDC(value = { "java.net.MalformedURLException" })
     @Test
     public void testCxfCallerHttpsPolicyInx509() throws Exception {
 

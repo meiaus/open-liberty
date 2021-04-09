@@ -138,6 +138,8 @@ public class CxfX509CrlTests extends CommonTests {
 
     }
 
+    //4/2021
+    @AllowedFFDC(value = { "java.net.MalformedURLException", "java.lang.ClassNotFoundException" })
     //2/2021 to test with EE8, then the corresponding server_certp_wss4j.xml can be used
     @Test
     @SkipForRepeat(SkipForRepeat.NO_MODIFICATION)
@@ -229,6 +231,8 @@ public class CxfX509CrlTests extends CommonTests {
     @Test
     @SkipForRepeat(SkipForRepeat.NO_MODIFICATION)
     @ExpectedFFDC("org.apache.wss4j.common.ext.WSSecurityException") //@AV999
+    //4/2021
+    @AllowedFFDC(value = { "java.net.MalformedURLException" })
     public void testCXFClientCRLNInListEE8Only() throws Exception {
 
         String thisMethod = "testCXFClientCRLNInList";
