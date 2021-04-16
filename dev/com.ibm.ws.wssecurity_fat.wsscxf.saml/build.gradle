@@ -435,5 +435,8 @@ autoFVT.doLast {
     }
   }
   
+<<<<<<< HEAD
   
+=======
+>>>>>>> b597171de2 (make wssecurity use common tooling to copy shibboleth server)
 }
