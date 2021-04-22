@@ -12,7 +12,7 @@ Subsystem-Name: SAML Web Single Sign-On 2.0
   com.ibm.wsspi.appserver.webBundle-1.0, \
   io.openliberty.samlWeb2.0.internal.ee-6.0; ibm.tolerates:="9.0"
 -bundles=\
-  io.openliberty.org.apache.commons.logging, \, \
+  io.openliberty.org.apache.commons.logging, \
   com.ibm.json4j, \
   io.openliberty.org.apache.commons.codec, \
   com.ibm.ws.org.jose4j
