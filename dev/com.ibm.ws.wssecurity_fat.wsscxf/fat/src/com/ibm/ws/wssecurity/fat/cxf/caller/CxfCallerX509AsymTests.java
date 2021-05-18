@@ -155,7 +155,10 @@ public class CxfCallerX509AsymTests {
      */
 
     //4/2021
-    @AllowedFFDC(value = { "java.net.MalformedURLException", "java.lang.ClassNotFoundException" })
+    //@AllowedFFDC(value = { "java.net.MalformedURLException", "java.lang.ClassNotFoundException" })
+    //5/2021 added PrivilegedActionExc, NoSuchMethodExc as a result of java11 and ee8
+    @AllowedFFDC(value = { "java.net.MalformedURLException", "java.lang.ClassNotFoundException", "java.security.PrivilegedActionException",
+                           "java.lang.NoSuchMethodException" })
     @Test
     public void testCxfCallerX509TokenPolicy() throws Exception {
 
@@ -587,12 +590,7 @@ public class CxfCallerX509AsymTests {
                        untID,
                        untPassword,
                        errMsgVersion,
-<<<<<<< HEAD
-                       errMsgVersionInX509);
-        //2/2021
-=======
                        null); //2/2021
->>>>>>> a50efb9184 (update errmsg flag, java2 permissions)
 
         return;
     }
