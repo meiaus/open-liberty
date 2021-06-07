@@ -1,0 +1,312 @@
+------Start of DE processing------ = [6/6/21 0:21:03:172 PDT]
+Exception = java.net.MalformedURLException
+Source = org.apache.cxf.rt.security.utils.SecurityUtils
+probeid = 117
+Stack Dump = java.net.MalformedURLException: no protocol: cxf-ehcache.xml
+	at java.net.URL.<init>(URL.java:622)
+	at java.net.URL.<init>(URL.java:519)
+	at java.net.URL.<init>(URL.java:468)
+	at org.apache.cxf.rt.security.utils.SecurityUtils.loadResource(SecurityUtils.java:116)
+	at org.apache.cxf.rt.security.utils.SecurityUtils.loadResource(SecurityUtils.java:95)
+	at org.apache.cxf.rt.security.utils.SecurityUtils.getConfigFileURL(SecurityUtils.java:79)
+	at org.apache.cxf.ws.security.tokenstore.EHCacheTokenStoreFactory.newTokenStore(EHCacheTokenStoreFactory.java:39)
+	at org.apache.cxf.ws.security.tokenstore.TokenStoreUtils.getTokenStore(TokenStoreUtils.java:58)
+	at org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor.getCallback(WSS4JInInterceptor.java:696)
+	at org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor.getCallback(WSS4JInInterceptor.java:637)
+	at org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor.handleMessageInternal(WSS4JInInterceptor.java:277)
+	at org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor.handleMessage(WSS4JInInterceptor.java:213)
+	at org.apache.cxf.ws.security.wss4j.PolicyBasedWSS4JInInterceptor.handleMessage(PolicyBasedWSS4JInInterceptor.java:123)
+	at org.apache.cxf.ws.security.wss4j.PolicyBasedWSS4JInInterceptor.handleMessage(PolicyBasedWSS4JInInterceptor.java:76)
+	at org.apache.cxf.phase.PhaseInterceptorChain.doIntercept(PhaseInterceptorChain.java:308)
+	at org.apache.cxf.transport.ChainInitiationObserver.onMessage(ChainInitiationObserver.java:123)
+	at org.apache.cxf.transport.http.AbstractHTTPDestination.invoke(AbstractHTTPDestination.java:274)
+	at com.ibm.ws.jaxws.endpoint.AbstractJaxWsWebEndpoint.invoke(AbstractJaxWsWebEndpoint.java:178)
+	at com.ibm.ws.jaxws.webcontainer.LibertyJaxWsServlet.handleRequest(LibertyJaxWsServlet.java:134)
+	at com.ibm.ws.jaxws.webcontainer.LibertyJaxWsServlet.doPost(LibertyJaxWsServlet.java:93)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:706)
+	at com.ibm.ws.jaxws.webcontainer.LibertyJaxWsServlet.service(LibertyJaxWsServlet.java:85)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1258)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:746)
+	at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:443)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.invokeTarget(WebAppFilterChain.java:183)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:94)
+	at com.ibm.ws.security.jaspi.JaspiServletFilter.doFilter(JaspiServletFilter.java:56)
+	at com.ibm.ws.webcontainer.filter.FilterInstanceWrapper.doFilter(FilterInstanceWrapper.java:201)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:91)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:1002)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1140)
+	at com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters(WebAppFilterManager.java:1011)
+	at com.ibm.ws.webcontainer.servlet.CacheServletWrapper.handleRequest(CacheServletWrapper.java:75)
+	at com.ibm.ws.webcontainer40.servlet.CacheServletWrapper40.handleRequest(CacheServletWrapper40.java:85)
+	at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:938)
+	at com.ibm.ws.webcontainer.osgi.DynamicVirtualHost$2.run(DynamicVirtualHost.java:279)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink$TaskWrapper.run(HttpDispatcherLink.java:1159)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.wrapHandlerAndExecute(HttpDispatcherLink.java:428)
+	at com.ibm.ws.http.dispatcher.internal.channel.HttpDispatcherLink.ready(HttpDispatcherLink.java:387)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:566)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.handleNewRequest(HttpInboundLink.java:500)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.processRequest(HttpInboundLink.java:360)
+	at com.ibm.ws.http.channel.internal.inbound.HttpInboundLink.ready(HttpInboundLink.java:327)
+	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.sendToDiscriminators(NewConnectionInitialReadCallback.java:167)
+	at com.ibm.ws.tcpchannel.internal.NewConnectionInitialReadCallback.complete(NewConnectionInitialReadCallback.java:75)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.requestComplete(WorkQueueManager.java:504)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.attemptIO(WorkQueueManager.java:574)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager.workerRun(WorkQueueManager.java:958)
+	at com.ibm.ws.tcpchannel.internal.WorkQueueManager$Worker.run(WorkQueueManager.java:1047)
+	at com.ibm.ws.threading.internal.ExecutorServiceImpl$RunnableWrapper.run(ExecutorServiceImpl.java:238)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1160)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.lang.Thread.run(Thread.java:822)
+
+Dump of callerThis
+null
+Dump of objectArray[0]
+Object type = org.apache.cxf.resource.DefaultResourceManager
+  LOG = class com.ibm.ws.logging.internal.WsLogger@9157acca
+    ivCachedResourceBundleName = null
+    ivCachedResourceBundle = null
+    ivComponent = null
+    ivOrganization = null
+    ivProduct = null
+    ivMinimumLocalizationLevelIntValue = 625
+    ivTC = class com.ibm.websphere.ras.TraceComponent@905bbef0
+      strings[0] = "TraceComponent[org.apache.cxf.resource.DefaultResourceManagerorg.eclipse.osgi.internal.loader.EquinoxClassLoader@7027cb6e[com.ibm.ws.org.apache.cxf.cxf.core.3.2:1.0.53.202106011250(id=160)],class org.apache.cxf.common.logging.LogUtils,[org.apache.cxf.resource.DefaultResourceManagerorg.eclipse.osgi.internal.loader.EquinoxClassLoader@7027cb6e[com.ibm.ws.org.apache.cxf.cxf.core.3.2:1.0.53.202106011250(id=160)]],null,null]"
+    loggerRegistrationComponent = class java.lang.ThreadLocal@d14ed992
+      threadLocalHashCode = -1992887715
+      nextHashCode = class java.util.concurrent.atomic.AtomicInteger@77650419
+      HASH_INCREMENT = 1640531527
+    emptyHandlers = class java.util.logging.Handler[0]
+    offValue = 2147483647
+    SYSTEM_LOGGER_RB_NAME = "sun.util.logging.resources.logging"
+    SYSTEM_BUNDLE = class java.util.logging.Logger$LoggerBundle@f0769ac4
+      resourceBundleName = "sun.util.logging.resources.logging"
+      userBundle = null
+    NO_RESOURCE_BUNDLE = class java.util.logging.Logger$LoggerBundle@d2aa523a
+      resourceBundleName = null
+      userBundle = null
+    manager = class com.ibm.ws.kernel.boot.logging.WsLogManager@2e8f19f0
+      CONFIGURE_BY_SERVER_PROPERTY_NAME = "java.util.logging.configureByServer"
+      CONFIGURE_BY_LOGGING_PROPERTIES_FILE = "java.util.logging.configureByLoggingPropertiesFile"
+      configureByServer = true
+      configureByLoggingProperties = false
+      wsLogger = class java.lang.reflect.Constructor@4926348d
+      resetEnabled = true
+      svBinaryLoggingEnable = false
+      manager = class com.ibm.ws.kernel.boot.logging.WsLogManager@2e8f19f0
+      props = class java.util.Properties@3656399e
+      defaultLevel = class java.util.logging.Level@ea6e20a1
+      listenerMap = class java.util.HashMap@4f8e49f6
+      systemContext = class java.util.logging.LogManager$SystemLoggerContext@aa945349
+      userContext = class java.util.logging.LogManager$LoggerContext@d6928c4e
+      rootLogger = class java.util.logging.LogManager$RootLogger@228ac493
+      readPrimordialConfiguration = true
+      initializedGlobalHandlers = true
+      deathImminent = false
+      initializedCalled = true
+      initializationDone = true
+      contextsMap = null
+      loggerRefQueue = class java.lang.ref.ReferenceQueue@20d457eb
+      MAX_ITERATIONS = 400
+      controlPermission = class java.util.logging.LoggingPermission@8a171785
+      loggingMXBean = null
+      LOGGING_MXBEAN_NAME = "java.util.logging:type=Logging"
+      $assertionsDisabled = true
+    name = "org.apache.cxf.resource.DefaultResourceManagerorg.eclipse.osgi.internal.loader.EquinoxClassLoader@7027cb6e[com.ibm.ws.org.apache.cxf.cxf.core.3.2:1.0.53.202106011250(id=160)]"
+    handlers = class java.util.concurrent.CopyOnWriteArrayList@1cb87d03
+      serialVersionUID = 8673264195747942595
+      lock = class java.util.concurrent.locks.ReentrantLock@10e7a139
+      array = class java.lang.Object[0]
+      UNSAFE = class sun.misc.Unsafe@236074b8
+      lockOffset = 8
+    loggerBundle = class java.util.logging.Logger$LoggerBundle@4be29a95
+      resourceBundleName = "org.apache.cxf.resource.Messages"
+      userBundle = null
+    useParentHandlers = true
+    filter = null
+    anonymous = false
+    catalog = class java.util.PropertyResourceBundle@1120504e
+      lookup = class java.util.HashMap@fbee2298
+      INITIAL_CACHE_SIZE = 32
+      NONEXISTENT_BUNDLE = class java.util.ResourceBundle$1@653a0597
+      cacheList = class java.util.concurrent.ConcurrentHashMap@754fb477
+      referenceQueue = class java.lang.ref.ReferenceQueue@49066af1
+      parent = null
+      locale = class java.util.Locale@431e5ca
+      name = "org.apache.cxf.resource.Messages"
+      expired = false
+      cacheKey = class java.util.ResourceBundle$CacheKey@dd56e36d
+      keySet = null
+      providers = null
+      vo = class java.lang.Object@e508575a
+      $assertionsDisabled = true
+    catalogName = "org.apache.cxf.resource.Messages"
+    catalogLocale = class java.util.Locale@ed4ad8f0
+      LOCALECACHE = class java.util.Locale$Cache@55346c7e
+      ENGLISH = class java.util.Locale@36514235
+      FRENCH = class java.util.Locale@7422d7fa
+      GERMAN = class java.util.Locale@200f9fd0
+      ITALIAN = class java.util.Locale@c1b15a3a
+      JAPANESE = class java.util.Locale@93f5eb1c
+      KOREAN = class java.util.Locale@56c016db
+      CHINESE = class java.util.Locale@d549fa36
+      SIMPLIFIED_CHINESE = class java.util.Locale@c8389b7
+      TRADITIONAL_CHINESE = class java.util.Locale@47c90c58
+      FRANCE = class java.util.Locale@83d053f7
+      GERMANY = class java.util.Locale@12bbb760
+      ITALY = class java.util.Locale@d0f12231
+      JAPAN = class java.util.Locale@1bc77d38
+      KOREA = class java.util.Locale@a109826a
+      CHINA = class java.util.Locale@c8389b7
+      PRC = class java.util.Locale@c8389b7
+      TAIWAN = class java.util.Locale@47c90c58
+      UK = class java.util.Locale@9095a221
+      US = class java.util.Locale@ed4ad8f0
+      CANADA = class java.util.Locale@9821256f
+      CANADA_FRENCH = class java.util.Locale@3ab03550
+      ROOT = class java.util.Locale@431e5ca
+      PRIVATE_USE_EXTENSION = x
+      UNICODE_LOCALE_EXTENSION = u
+      serialVersionUID = 9149081749638150636
+      DISPLAY_LANGUAGE = 0
+      DISPLAY_COUNTRY = 1
+      DISPLAY_VARIANT = 2
+      DISPLAY_SCRIPT = 3
+      baseLocale = class sun.util.locale.BaseLocale@365a15e3
+      localeExtensions = null
+      hashCodeValue = 96636889
+      defaultLocale = class java.util.Locale@ed4ad8f0
+      defaultDisplayLocale = null
+      defaultFormatLocale = class java.util.Locale@ed4ad8f0
+      languageTag = "en-US"
+      serialPersistentFields = class java.io.ObjectStreamField[6]
+      isoLanguages = null
+      isoCountries = null
+      $assertionsDisabled = true
+    treeLock = class java.lang.Object@5144499b
+    parent = class java.util.logging.Logger@4f082b0d
+      emptyHandlers = class java.util.logging.Handler[0]
+      offValue = 2147483647
+      SYSTEM_LOGGER_RB_NAME = "sun.util.logging.resources.logging"
+      SYSTEM_BUNDLE = class java.util.logging.Logger$LoggerBundle@f0769ac4
+      NO_RESOURCE_BUNDLE = class java.util.logging.Logger$LoggerBundle@d2aa523a
+      manager = class com.ibm.ws.kernel.boot.logging.WsLogManager@2e8f19f0
+      name = ""
+      handlers = class java.util.concurrent.CopyOnWriteArrayList@6d6c47b1
+      loggerBundle = class java.util.logging.Logger$LoggerBundle@d2aa523a
+      useParentHandlers = true
+      filter = null
+      anonymous = false
+      catalog = null
+      catalogName = null
+      catalogLocale = null
+      treeLock = class java.lang.Object@5144499b
+      parent = null
+      kids = class java.util.ArrayList@bf2db7ac
+      levelObject = null
+      levelValue = 800
+      callersClassLoaderRef = null
+      isSystemLogger = false
+      GLOBAL_LOGGER_NAME = "global"
+      global = class java.util.logging.Logger@2d9d14e1
+      $assertionsDisabled = true
+    kids = null
+    levelObject = class java.util.logging.Level@ea6e20a1
+      defaultBundle = "sun.util.logging.resources.logging"
+      name = "INFO"
+      value = 800
+      resourceBundleName = "sun.util.logging.resources.logging"
+      localizedLevelName = "INFO"
+      cachedLocale = class java.util.Locale@ed4ad8f0
+      OFF = class java.util.logging.Level@fb82eaf3
+      SEVERE = class java.util.logging.Level@fdb10199
+      WARNING = class java.util.logging.Level@2c4aec2b
+      INFO = class java.util.logging.Level@ea6e20a1
+      CONFIG = class java.util.logging.Level@a0b3147
+      FINE = class java.util.logging.Level@6d4d110
+      FINER = class java.util.logging.Level@75d05ff9
+      FINEST = class java.util.logging.Level@eeb34455
+      ALL = class java.util.logging.Level@ae49d469
+      serialVersionUID = -8176160795706313070
+    levelValue = 800
+    callersClassLoaderRef = class java.lang.ref.WeakReference@5c0f1400
+      STATE_INITIAL = 0
+      STATE_CLEARED = 1
+      STATE_ENQUEUED = 2
+      referent = class org.eclipse.osgi.internal.loader.EquinoxClassLoader@7027cb6e
+      queue = null
+      state = 0
+    isSystemLogger = false
+    GLOBAL_LOGGER_NAME = "global"
+    global = class java.util.logging.Logger@2d9d14e1
+      emptyHandlers = class java.util.logging.Handler[0]
+      offValue = 2147483647
+      SYSTEM_LOGGER_RB_NAME = "sun.util.logging.resources.logging"
+      SYSTEM_BUNDLE = class java.util.logging.Logger$LoggerBundle@f0769ac4
+      NO_RESOURCE_BUNDLE = class java.util.logging.Logger$LoggerBundle@d2aa523a
+      manager = class com.ibm.ws.kernel.boot.logging.WsLogManager@2e8f19f0
+      name = "global"
+      handlers = class java.util.concurrent.CopyOnWriteArrayList@fee24755
+      loggerBundle = class java.util.logging.Logger$LoggerBundle@d2aa523a
+      useParentHandlers = true
+      filter = null
+      anonymous = false
+      catalog = null
+      catalogName = null
+      catalogLocale = null
+      treeLock = class java.lang.Object@5144499b
+      parent = class java.util.logging.LogManager$RootLogger@228ac493
+      kids = null
+      levelObject = null
+      levelValue = 800
+      callersClassLoaderRef = null
+      isSystemLogger = true
+      GLOBAL_LOGGER_NAME = "global"
+      global = class java.util.logging.Logger@2d9d14e1
+      $assertionsDisabled = true
+    $assertionsDisabled = true
+  registeredResolvers = class java.util.concurrent.CopyOnWriteArrayList@d2ea866b
+    serialVersionUID = 8673264195747942595
+    lock = class java.util.concurrent.locks.ReentrantLock@6388e4be
+      serialVersionUID = 7373984872572414699
+      sync = class java.util.concurrent.locks.ReentrantLock$NonfairSync@10fc0e23
+    array = class java.lang.Object[11]
+      Object[0] = class org.apache.cxf.jaxws.context.WebServiceContextResourceResolver@a47e16b8
+      Object[1] = class org.apache.cxf.resource.ObjectTypeResolver@4cd60ae7
+      Object[2] = class org.apache.cxf.resource.SinglePropertyResolver@c1275ce4
+      Object[3] = class org.apache.cxf.bus.extension.ExtensionManagerBus$1@9cfdae4
+      Object[4] = class org.apache.cxf.resource.ObjectTypeResolver@9cc0dd91
+      Object[5] = class org.apache.cxf.resource.SinglePropertyResolver@eb72998a
+      Object[6] = class org.apache.cxf.resource.ObjectTypeResolver@887b5bf8
+      Object[7] = class org.apache.cxf.resource.SinglePropertyResolver@690a639
+      Object[8] = class org.apache.cxf.resource.PropertiesResolver@98c2ecaa
+      Object[9] = class org.apache.cxf.resource.ClassLoaderResolver@7a7513f4
+      Object[10] = class org.apache.cxf.resource.ClasspathResolver@6b786243
+    UNSAFE = class sun.misc.Unsafe@236074b8
+      theUnsafe = class sun.misc.Unsafe@236074b8
+      INVALID_FIELD_OFFSET = -1
+      ARRAY_BOOLEAN_BASE_OFFSET = 16
+      ARRAY_BYTE_BASE_OFFSET = 16
+      ARRAY_SHORT_BASE_OFFSET = 16
+      ARRAY_CHAR_BASE_OFFSET = 16
+      ARRAY_INT_BASE_OFFSET = 16
+      ARRAY_LONG_BASE_OFFSET = 16
+      ARRAY_FLOAT_BASE_OFFSET = 16
+      ARRAY_DOUBLE_BASE_OFFSET = 16
+      ARRAY_OBJECT_BASE_OFFSET = 16
+      ARRAY_BOOLEAN_INDEX_SCALE = 1
+      ARRAY_BYTE_INDEX_SCALE = 1
+      ARRAY_SHORT_INDEX_SCALE = 2
+      ARRAY_CHAR_INDEX_SCALE = 2
+      ARRAY_INT_INDEX_SCALE = 4
+      ARRAY_LONG_INDEX_SCALE = 8
+      ARRAY_FLOAT_INDEX_SCALE = 4
+      ARRAY_DOUBLE_INDEX_SCALE = 8
+      ARRAY_OBJECT_INDEX_SCALE = 4
+      ADDRESS_SIZE = 8
+    lockOffset = 8
+  firstCalled = true
+
+Dump of objectArray[1]
+Object type = java.lang.String
+  String value = "cxf-ehcache.xml"
+

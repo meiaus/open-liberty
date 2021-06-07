@@ -1,0 +1,88 @@
+Launching com.ibm.ws.wssecurity_fat.x509async (Open Liberty 21.0.0.6/wlp-1.0.53.202106011250) on IBM J9 VM, version 8.0.6.30 - pwa6480sr6fp30-20210507_01(SR6 FP30) (en_US)
+[AUDIT   ] CWWKE0001I: The server com.ibm.ws.wssecurity_fat.x509async has been launched.
+[AUDIT   ] CWWKG0028A: Processing included configuration resource: C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\fatTestPorts.xml
+[AUDIT   ] CWWKG0028A: Processing included configuration resource: C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\fatTestCommon.xml
+[WARNING ] CWWKG0101W: The configuration with the persisted identity (PID) com.ibm.ws.wssecurity.sig.config_70 is bound to the bundle com.ibm.ws.wssecurity.3.4.1. The configuration is not visible to other bundles.  
+[WARNING ] CWWKG0101W: The configuration with the persisted identity (PID) com.ibm.ws.wssecurity.sig.config_69 is bound to the bundle com.ibm.ws.wssecurity.3.4.1. The configuration is not visible to other bundles.  
+[AUDIT   ] CWWKZ0058I: Monitoring dropins for applications.
+[AUDIT   ] TE9900A: Timed Exit Enabled
+[AUDIT   ] CWWKS4104A: LTPA keys created in 1.099 seconds. LTPA key file: C:/Users/Administrator/libertyGit/open-liberty/dev/build.image/wlp/usr/servers/com.ibm.ws.wssecurity_fat.x509async/resources/security/ltpa.keys
+[WARNING ] Could not create a secure Stax XMLInputFactory.  Found class com.ibm.xml.xlxp.api.stax.XMLInputFactoryImpl.  Suggest Woodstox 4.2.0 or newer.
+[AUDIT   ] CWWKT0016I: Web application available (default_host): http://10.21.46.246:8010/x509aSyncclient/
+[AUDIT   ] CWWKT0016I: Web application available (default_host): http://10.21.46.246:8010/x509aSync/
+[AUDIT   ] CWWKZ0001I: Application x509aSyncclient started in 2.279 seconds.
+[AUDIT   ] CWWKZ0001I: Application x509aSync started in 2.279 seconds.
+[AUDIT   ] CWWKF0012I: The server installed the following features: [appSecurity-2.0, appSecurity-3.0, cdi-2.0, distributedMap-1.0, el-3.0, jaxb-2.3, jaxws-2.3, jndi-1.0, jsp-2.3, servlet-4.0, ssl-1.0, timedexit-1.0, usr:wsseccbh-2.0, wsSecurity-1.1].
+[AUDIT   ] CWWKF0011I: The com.ibm.ws.wssecurity_fat.x509async server is ready to run a smarter planet. The com.ibm.ws.wssecurity_fat.x509async server started in 25.460 seconds.
+************************ testCxfAsyncInvokeNonBlocking_EE8_FEATURES ************************
+After request.getParameter CBHVersion: null
+clientWsdl::end
+rawWsdl::rawWsdl
+wsdlLocation: http://localhost:8010/x509aSync/X509AsyncService?wsdl
+wsdlUrl: http://localhost:8010/x509aSync/X509AsyncService?wsdl
+Will send appropriate message for msgId: 
+In X509AsyncService case
+CBHVersion: 
+Setting id: user1 with password: security
+Service Client request Header: [soapenv:Header: null]
+Service Client request Body: [soapenv:Body: null]
+Outgoing msg contains: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body xmlns="http://x509async.wssecfvt.test/types"><invokeAsync>WSSECFVT Simple Soap Msg</invokeAsync></soapenv:Body></soapenv:Envelope>
+From CommonPasswordCallbackWss4j.java, using the callbacks:[Lorg.apache.wss4j.common.ext.WSPasswordCallback;@c954d295
+From CommonPasswordCallbackWss4j.java: id:soaprequester
+From CommonPasswordCallbackWss4j.java: Getting signaturePassword id:soaprequester
+From CommonPasswordCallbackWss4j.java: signaturePassword:client
+In CxfX509AsyncSvcClient, Non-Blocking Case
+In CxfX509AsyncSvcClient, thread sleep ... and waitCount: 0
+In CxfX509AsyncSvcClient, thread sleep ... and waitCount: 1
+[WARNING ] No Subject DN Certificate Constraints were defined. This could be a security issue
+In X509AsyncWebSvc, Executing operation invoke
+getVersion: 
+test.wssecfvt.x509async.types.RequestString@e855211f
+From CommonPasswordCallbackWss4j.java, using the callbacks:[Lorg.apache.wss4j.common.ext.WSPasswordCallback;@bb2bbb32
+From CommonPasswordCallbackWss4j.java: id:soapprovider
+From CommonPasswordCallbackWss4j.java: Getting signaturePassword id:soapprovider
+From CommonPasswordCallbackWss4j.java: signaturePassword:server
+In CxfX509AsyncSvcClient, thread sleep ... and waitCount: 2
+[WARNING ] Interceptor for {http://x509async.wssecfvt.test}X509AsyncService#{http://x509async.wssecfvt.test}invoke has thrown exception, unwinding now
+com.ibm.ws.wssecurity.example.cbhwss4j.CommonPasswordCallbackWss4j cannot be found by com.ibm.ws.org.apache.cxf.rt.security.3.4.1_1.0.53.202106011250
+In CxfX509AsyncSvcClient, response is done and waitCount: 3
+[err] java.util.concurrent.ExecutionException: javax.xml.ws.soap.SOAPFaultException: com.ibm.ws.wssecurity.example.cbhwss4j.CommonPasswordCallbackWss4j cannot be found by com.ibm.ws.org.apache.cxf.rt.security.3.4.1_1.0.53.202106011250
+[err] 	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:368)
+[err] 	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1919)
+[err] 	at org.apache.cxf.endpoint.ClientCallback.get(ClientCallback.java:139)
+[err] 	at [internal classes]
+[err] 	at com.ibm.ws.wssecurity.fat.x509Asyncclient.CxfX509AsyncSvcClient.doWorker(CxfX509AsyncSvcClient.java:221)
+[err] 	at com.ibm.ws.wssecurity.fat.x509Asyncclient.CxfX509AsyncSvcClient.doGet(CxfX509AsyncSvcClient.java:289)
+[err] 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:686)
+[err] 	at javax.servlet.http.HttpServlet.service(HttpServlet.java:791)
+[err] 	at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1258)
+[err] 	at [internal classes]
+[err] 	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1160)
+[err] 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+[err] 	at java.lang.Thread.run(Thread.java:822)
+[err] Caused by: 
+[err] javax.xml.ws.soap.SOAPFaultException: com.ibm.ws.wssecurity.example.cbhwss4j.CommonPasswordCallbackWss4j cannot be found by com.ibm.ws.org.apache.cxf.rt.security.3.4.1_1.0.53.202106011250
+[err] 	at org.apache.cxf.jaxws.JaxWsClientProxy.mapException(JaxWsClientProxy.java:195)
+[err] 	at [internal classes]
+[err] 	... 4 more
+[err] Caused by: 
+[err] org.apache.wss4j.common.ext.WSSecurityException: com.ibm.ws.wssecurity.example.cbhwss4j.CommonPasswordCallbackWss4j cannot be found by com.ibm.ws.org.apache.cxf.rt.security.3.4.1_1.0.53.202106011250
+Original Exception was java.lang.ClassNotFoundException: com.ibm.ws.wssecurity.example.cbhwss4j.CommonPasswordCallbackWss4j cannot be found by com.ibm.ws.org.apache.cxf.rt.security.3.4.1_1.0.53.202106011250
+[err] 	at org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor.getCallback(WSS4JInInterceptor.java:651)
+[err] 	at [internal classes]
+[err] 	... 6 more
+[err] Caused by: 
+[err] java.lang.ClassNotFoundException: com.ibm.ws.wssecurity.example.cbhwss4j.CommonPasswordCallbackWss4j cannot be found by com.ibm.ws.org.apache.cxf.rt.security.3.4.1_1.0.53.202106011250
+[err] 	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:519)
+[err] 	at [internal classes]
+[err] 	at java.lang.ClassLoader.loadClass(ClassLoader.java:870)
+[err] 	at org.apache.cxf.common.classloader.ClassLoaderUtils.loadClass2(ClassLoaderUtils.java:319)
+[err] 	at [internal classes]
+[err] 	... 13 more
+[AUDIT   ] CWWKE0055I: Server shutdown requested on Sunday, June 6, 2021 at 12:21 AM. The server com.ibm.ws.wssecurity_fat.x509async is shutting down.
+[AUDIT   ] CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[AUDIT   ] CWWKT0017I: Web application removed (default_host): http://10.21.46.246:8010/x509aSync/
+[AUDIT   ] CWWKT0017I: Web application removed (default_host): http://10.21.46.246:8010/x509aSyncclient/
+[AUDIT   ] CWWKZ0009I: The application x509aSyncclient has stopped successfully.
+[AUDIT   ] CWWKZ0009I: The application x509aSync has stopped successfully.
+[AUDIT   ] CWWKE0036I: The server com.ibm.ws.wssecurity_fat.x509async stopped after 42.387 seconds.

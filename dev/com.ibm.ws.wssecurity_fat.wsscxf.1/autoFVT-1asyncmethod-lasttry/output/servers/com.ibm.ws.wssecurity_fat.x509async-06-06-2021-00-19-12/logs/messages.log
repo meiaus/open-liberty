@@ -1,0 +1,496 @@
+********************************************************************************
+product = Open Liberty 21.0.0.6 (wlp-1.0.53.202106011250)
+wlp.install.dir = C:/Users/Administrator/libertyGit/open-liberty/dev/build.image/wlp/
+java.home = C:\java8_8.0.6.30\ibm-java-sdk-80-win-x86_64\sdk\jre
+java.version = 1.8.0_291
+java.runtime = Java(TM) SE Runtime Environment (8.0.6.30 - pwa6480sr6fp30-20210507_01(SR6 FP30))
+os = Windows Server 2016 (10.0; amd64) (en_US)
+process = 9396@ventails1
+********************************************************************************
+[6/6/21 0:18:38:482 PDT] 00000001 com.ibm.ws.logging.internal.TraceSpecification               I TRAS0018I: The trace state has been changed. The new trace state is *=info:com.ibm.ws.jaxws.*=all:com.ibm.ws.wssecurity.*=all:org.apache.cxf.common.classloader.ClassLoaderUtils.*=all:org.apache.cxf.rt.security.utils.*=all:org.apache.cxf.transport.*=all:org.apache.cxf.ws.security.*=all.
+[6/6/21 0:18:38:604 PDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server com.ibm.ws.wssecurity_fat.x509async has been launched.
+[6/6/21 0:18:49:798 PDT] 00000047 com.ibm.ws.config.xml.internal.XMLConfigParser               A CWWKG0028A: Processing included configuration resource: C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\fatTestPorts.xml
+[6/6/21 0:18:49:814 PDT] 00000047 com.ibm.ws.config.xml.internal.XMLConfigParser               A CWWKG0028A: Processing included configuration resource: C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\fatTestCommon.xml
+[6/6/21 0:18:50:198 PDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 16.49 seconds
+[6/6/21 0:18:51:899 PDT] 0000004f com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
+[6/6/21 0:18:55:242 PDT] 00000043 com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0007I: The security service is starting...
+[6/6/21 0:18:55:539 PDT] 00000043 com.ibm.ws.config.admin.internal.ConfigurationAdminImpl      W CWWKG0101W: The configuration with the persisted identity (PID) com.ibm.ws.wssecurity.sig.config_60 is bound to the bundle com.ibm.ws.wssecurity. The configuration is not visible to other bundles.  
+[6/6/21 0:18:55:623 PDT] 00000043 com.ibm.ws.config.admin.internal.ConfigurationAdminImpl      W CWWKG0101W: The configuration with the persisted identity (PID) com.ibm.ws.wssecurity.sig.config_70 is bound to the bundle com.ibm.ws.wssecurity. The configuration is not visible to other bundles.  
+[6/6/21 0:18:56:296 PDT] 00000047 com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Monitoring dropins for applications.
+[6/6/21 0:18:56:496 PDT] 00000046 com.ibm.ws.cache.ServerCache                                 I DYNA1001I: WebSphere Dynamic Cache instance named baseCache initialized successfully.
+[6/6/21 0:18:56:496 PDT] 00000046 com.ibm.ws.cache.ServerCache                                 I DYNA1071I: The cache provider default is being used.
+[6/6/21 0:18:56:496 PDT] 00000046 com.ibm.ws.cache.CacheServiceImpl                            I DYNA1056I: Dynamic Cache (object cache) initialized successfully.
+[6/6/21 0:18:56:549 PDT] 00000055 com.ibm.ws.security.token.ltpa.LTPAKeyInfoManager            I CWWKS4103I: Creating the LTPA keys. This may take a few seconds.
+[6/6/21 0:18:56:642 PDT] 00000043 ibm.ws.security.authentication.internal.jaas.JAASServiceImpl I CWWKS1123I: The collective authentication plugin with class name NullCollectiveAuthenticationPlugin has been activated. 
+[6/6/21 0:18:57:067 PDT] 0000004b com.ibm.ws.ssl.config.WSKeyStore                             I CWPKI0819I: The default keystore is not created because a password is not configured on the <keyStore id="defaultKeyStore"/> element, and the 'keystore_password' environment variable is not set. 
+[6/6/21 0:18:57:234 PDT] 00000043 com.ibm.ws.timedexit.internal.TimedExitComponent             A TE9900A: Timed Exit Enabled
+[6/6/21 0:18:57:800 PDT] 00000043 org.apache.cxf.bus.osgi.CXFActivator                         I Adding the extensions from bundle com.ibm.ws.org.apache.cxf.cxf.rt.ws.addr.2.6.2 (117) [org.apache.cxf.ws.addressing.policy.AddressingAssertionBuilder, org.apache.cxf.ws.addressing.policy.UsingAddressingAssertionBuilder, org.apache.cxf.ws.addressing.policy.AddressingPolicyInterceptorProvider, org.apache.cxf.ws.addressing.impl.AddressingWSDLExtensionLoader, org.apache.cxf.ws.addressing.WSAddressingFeature$WSAddressingFeatureApplier, org.apache.cxf.ws.addressing.MAPAggregator$MAPAggregatorLoader]
+[6/6/21 0:18:57:806 PDT] 00000043 org.apache.cxf.bus.osgi.CXFActivator                         I Adding the extensions from bundle com.ibm.ws.org.apache.cxf.cxf.rt.bindings.soap.2.6.2 (121) [org.apache.cxf.binding.soap.SoapBindingFactory, org.apache.cxf.binding.soap.SoapTransportFactory]
+[6/6/21 0:18:57:808 PDT] 00000043 org.apache.cxf.bus.osgi.CXFActivator                         I Adding the extensions from bundle com.ibm.ws.org.apache.cxf.cxf.rt.bindings.xml.2.6.2 (127) [org.apache.cxf.binding.xml.XMLBindingFactory, org.apache.cxf.binding.xml.wsdl11.XMLWSDLExtensionLoader]
+[6/6/21 0:18:57:809 PDT] 00000043 org.apache.cxf.bus.osgi.CXFActivator                         I Adding the extensions from bundle com.ibm.ws.org.apache.cxf.cxf.rt.frontend.jaxws.2.6.2 (129) [org.apache.cxf.jaxws.context.WebServiceContextResourceResolver]
+[6/6/21 0:18:57:810 PDT] 00000043 org.apache.cxf.bus.osgi.CXFActivator                         I Adding the extensions from bundle com.ibm.ws.org.apache.cxf.cxf.rt.management.2.6.2 (131) [org.apache.cxf.management.InstrumentationManager]
+[6/6/21 0:18:57:812 PDT] 00000043 org.apache.cxf.bus.osgi.CXFActivator                         I Adding the extensions from bundle com.ibm.ws.org.apache.cxf.cxf.rt.transports.http.2.6.2 (136) [org.apache.cxf.transport.http.HTTPTransportFactory, org.apache.cxf.transport.http.HTTPWSDLExtensionLoader, org.apache.cxf.transport.http.policy.HTTPClientAssertionBuilder, org.apache.cxf.transport.http.policy.HTTPServerAssertionBuilder, org.apache.cxf.transport.http.policy.NoOpPolicyInterceptorProvider]
+[6/6/21 0:18:57:814 PDT] 00000043 org.apache.cxf.bus.osgi.CXFActivator                         I Adding the extensions from bundle com.ibm.ws.org.apache.cxf.cxf.rt.ws.policy.2.6.2 (138) [org.apache.cxf.ws.policy.PolicyEngine, org.apache.cxf.policy.PolicyDataEngine, org.apache.cxf.ws.policy.AssertionBuilderRegistry, org.apache.cxf.ws.policy.PolicyInterceptorProviderRegistry, org.apache.cxf.ws.policy.PolicyBuilder, org.apache.cxf.ws.policy.PolicyAnnotationListener, org.apache.cxf.ws.policy.attachment.ServiceModelPolicyProvider, org.apache.cxf.ws.policy.attachment.external.DomainExpressionBuilderRegistry, org.apache.cxf.ws.policy.attachment.external.EndpointReferenceDomainExpressionBuilder, org.apache.cxf.ws.policy.attachment.wsdl11.Wsdl11AttachmentPolicyProvider, org.apache.cxf.ws.policy.mtom.MTOMAssertionBuilder, org.apache.cxf.ws.policy.mtom.MTOMPolicyInterceptorProvider]
+[6/6/21 0:18:57:820 PDT] 00000043 org.apache.cxf.bus.osgi.CXFActivator                         I Adding the extensions from bundle com.ibm.ws.wssecurity (151) [com.ibm.ws.wssecurity.WSSecurityPolicyLoader]
+[6/6/21 0:18:57:823 PDT] 00000043 org.apache.cxf.bus.osgi.CXFActivator                         I Adding the extensions from bundle com.ibm.ws.org.apache.cxf.ws.security.2.6.2 (153) [org.apache.cxf.ws.security.cache.CacheCleanupListener]
+[6/6/21 0:18:57:825 PDT] 00000043 org.apache.cxf.bus.osgi.CXFActivator                         I Adding the extensions from bundle com.ibm.ws.org.apache.cxf.ws.mex.2.6.2 (155) [org.apache.cxf.ws.mex.MEXServerListener]
+[6/6/21 0:18:57:850 PDT] 00000055 com.ibm.ws.security.token.ltpa.LTPAKeyInfoManager            A CWWKS4104A: LTPA keys created in 1.301 seconds. LTPA key file: C:/Users/Administrator/libertyGit/open-liberty/dev/build.image/wlp/usr/servers/com.ibm.ws.wssecurity_fat.x509async/resources/security/ltpa.keys
+[6/6/21 0:18:57:857 PDT] 00000055 com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0008I: The security service is ready.
+[6/6/21 0:18:57:858 PDT] 00000055 com.ibm.ws.security.token.ltpa.internal.LTPAKeyCreateTask    I CWWKS4105I: LTPA configuration is ready after 1.312 seconds.
+[6/6/21 0:18:59:592 PDT] 00000056 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application x509aSync.
+[6/6/21 0:18:59:592 PDT] 00000053 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application x509aSyncclient.
+[6/6/21 0:18:59:592 PDT] 00000056 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0136I: The x509aSync application is using the archive file at the C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\com.ibm.ws.wssecurity_fat.x509async\dropins\x509aSync.war location.
+[6/6/21 0:18:59:592 PDT] 00000053 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0136I: The x509aSyncclient application is using the archive file at the C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\com.ibm.ws.wssecurity_fat.x509async\dropins\x509aSyncclient.war location.
+[6/6/21 0:19:00:624 PDT] 00000053 com.ibm.ws.session.WASSessionCore                            I SESN8501I: The session manager did not find a persistent storage location; HttpSession objects will be stored in the local application server's memory.
+[6/6/21 0:19:00:640 PDT] 00000053 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: x509AsyncSvcClient.
+[6/6/21 0:19:00:640 PDT] 00000053 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module x509AsyncSvcClient has been bound to default_host.
+[6/6/21 0:19:00:640 PDT] 00000053 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://10.21.46.246:8010/x509aSyncclient/
+[6/6/21 0:19:00:993 PDT] 00000054 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/x509aSyncclient
+[6/6/21 0:19:01:024 PDT] 00000054 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[6/6/21 0:19:01:092 PDT] 00000052 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\com.ibm.ws.wssecurity_fat.x509async\logs\state\plugin-cfg.xml.
+[6/6/21 0:19:01:155 PDT] 00000054 com.ibm.ws.cache.CacheServiceImpl                            I DYNA1056I: Dynamic Cache (object cache) initialized successfully.
+[6/6/21 0:19:01:171 PDT] 00000054 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application x509aSyncclient started in 1.579 seconds.
+[6/6/21 0:19:01:239 PDT] 00000054 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [x509aSyncclient] [/x509aSyncclient] [x509AsyncSvcClient]: Initialization successful.
+[6/6/21 0:19:01:455 PDT] 00000056 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: x509aSync.
+[6/6/21 0:19:01:455 PDT] 00000056 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module x509aSync has been bound to default_host.
+[6/6/21 0:19:01:455 PDT] 00000056 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://10.21.46.246:8010/x509aSync/
+[6/6/21 0:19:01:524 PDT] 00000055 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/x509aSync
+[6/6/21 0:19:01:524 PDT] 00000055 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[6/6/21 0:19:01:655 PDT] 00000056 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\com.ibm.ws.wssecurity_fat.x509async\logs\state\plugin-cfg.xml.
+[6/6/21 0:19:01:771 PDT] 00000055 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application x509aSync started in 2.179 seconds.
+[6/6/21 0:19:01:856 PDT] 0000004f com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint has been started and is now listening for requests on host *  (IPv6) port 8010.
+[6/6/21 0:19:01:856 PDT] 00000055 org.apache.cxf.management.jmx.InstrumentationManagerImpl     I registering MBean org.apache.cxf:bus.id=x509aSync-Server-Bus,type=Bus,instance.id=-1405968266: org.apache.cxf.bus.ManagedBus@5f71974
+[6/6/21 0:19:01:924 PDT] 00000055 org.apache.cxf.management.jmx.InstrumentationManagerImpl     I registered org.apache.cxf:bus.id=x509aSync-Server-Bus,type=Bus,instance.id=-1405968266
+[6/6/21 0:19:02:071 PDT] 0000004f com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [appSecurity-2.0, distributedMap-1.0, jaxb-2.2, jaxws-2.2, jndi-1.0, jsp-2.2, servlet-3.1, ssl-1.0, timedexit-1.0, usr:wsseccbh-1.0, wsSecurity-1.1].
+[6/6/21 0:19:02:071 PDT] 0000004f com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 11.878 seconds.
+[6/6/21 0:19:02:087 PDT] 0000004f com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: The com.ibm.ws.wssecurity_fat.x509async server is ready to run a smarter planet. The com.ibm.ws.wssecurity_fat.x509async server started in 28.369 seconds.
+[6/6/21 0:19:02:829 PDT] 00000055 org.apache.cxf.management.jmx.InstrumentationManagerImpl     I registering MBean org.apache.cxf:bus.id=x509aSync-Server-Bus,WorkQueueManager=Bus.WorkQueueManager,type=WorkQueueManager,instance.id=-332376492: org.apache.cxf.bus.managers.WorkQueueManagerImplMBeanWrapper@9948b1f0
+[6/6/21 0:19:04:308 PDT] 00000055 org.apache.cxf.ws.policy.AssertionBuilderRegistryImpl        W No assertion builder for type {http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702}ProtectTokens registered.
+[6/6/21 0:19:04:339 PDT] 00000055 org.apache.cxf.endpoint.ServerImpl                           I Setting the server's publish address to be /X509AsyncService
+[6/6/21 0:19:04:339 PDT] 00000055 org.apache.cxf.management.jmx.InstrumentationManagerImpl     I registering MBean org.apache.cxf:bus.id=x509aSync-Server-Bus,type=Bus.Service.Endpoint,service="{http://x509async.wssecfvt.test}X509AsyncService",port="X509AsyncPort",instance.id=-1364945134: org.apache.cxf.endpoint.ManagedEndpoint@bf51ae9d
+[6/6/21 0:19:04:375 PDT] 00000052 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [x509aSyncclient] [/x509aSyncclient] [com.ibm.ws.wssecurity.fat.x509Asyncclient.CxfX509AsyncSvcClient]: Initialization successful.
+[6/6/21 0:19:04:376 PDT] 00000052 SystemOut                                                    O ************************ testCxfAsyncInvokeNonBlocking ************************
+[6/6/21 0:19:04:392 PDT] 00000052 SystemOut                                                    O After request.getParameter CBHVersion: null
+[6/6/21 0:19:04:392 PDT] 00000052 SystemOut                                                    O clientWsdl::end
+[6/6/21 0:19:04:392 PDT] 00000052 SystemOut                                                    O rawWsdl::rawWsdl
+[6/6/21 0:19:04:392 PDT] 00000052 SystemOut                                                    O wsdlLocation: http://localhost:8010/x509aSync/X509AsyncService?wsdl
+[6/6/21 0:19:04:392 PDT] 00000052 SystemOut                                                    O wsdlUrl: http://localhost:8010/x509aSync/X509AsyncService?wsdl
+[6/6/21 0:19:04:392 PDT] 00000052 SystemOut                                                    O Will send appropriate message for msgId: 
+[6/6/21 0:19:04:408 PDT] 00000055 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [x509aSync] [/x509aSync] [X509AsyncService]: Initialization successful.
+[6/6/21 0:19:04:523 PDT] 00000052 SystemOut                                                    O In X509AsyncService case
+[6/6/21 0:19:04:523 PDT] 00000052 test.wssecfvt.x509async.X509AsyncService                     I Can not initialize the default wsdl from X509Async.wsdl
+[6/6/21 0:19:04:576 PDT] 00000052 org.apache.cxf.management.jmx.InstrumentationManagerImpl     I registering MBean org.apache.cxf:bus.id=x509aSyncclient-Client-Bus,type=Bus,instance.id=1921530749: org.apache.cxf.bus.ManagedBus@2b1062ec
+[6/6/21 0:19:04:576 PDT] 00000052 org.apache.cxf.management.jmx.InstrumentationManagerImpl     I registered org.apache.cxf:bus.id=x509aSyncclient-Client-Bus,type=Bus,instance.id=1921530749
+[6/6/21 0:19:04:592 PDT] 00000052 org.apache.cxf.management.jmx.InstrumentationManagerImpl     I registering MBean org.apache.cxf:bus.id=x509aSyncclient-Client-Bus,WorkQueueManager=Bus.WorkQueueManager,type=WorkQueueManager,instance.id=1422854411: org.apache.cxf.bus.managers.WorkQueueManagerImplMBeanWrapper@99d67735
+[6/6/21 0:19:05:139 PDT] 0000004f cxf.services.X509AsyncService.X509AsyncPort.UrnX509AsyncType I Inbound Message
+----------------------------
+ID: 1
+Address: http://localhost:8010/x509aSync/X509AsyncService?wsdl
+Http-Method: GET
+Content-Type: text/xml
+Headers: {Accept=[*/*], Cache-Control=[no-cache], connection=[keep-alive], content-type=[text/xml], Host=[localhost:8010], Pragma=[no-cache], User-Agent=[Apache CXF 2.6.2]}
+--------------------------------------
+[6/6/21 0:19:05:392 PDT] 00000052 SystemOut                                                    O CBHVersion: 
+[6/6/21 0:19:05:392 PDT] 00000052 SystemOut                                                    O Setting id: user1 with password: security
+[6/6/21 0:19:05:392 PDT] 00000052 SystemOut                                                    O Service Client request Header: [soapenv:Header: null]
+[6/6/21 0:19:05:392 PDT] 00000052 SystemOut                                                    O Service Client request Body: [soapenv:Body: null]
+[6/6/21 0:19:05:392 PDT] 00000052 SystemOut                                                    O Outgoing msg contains: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body xmlns="http://x509async.wssecfvt.test/types"><invokeAsync>WSSECFVT Simple Soap Msg</invokeAsync></soapenv:Body></soapenv:Envelope>
+[6/6/21 0:19:05:408 PDT] 00000052 org.apache.cxf.ws.policy.AssertionBuilderRegistryImpl        W No assertion builder for type {http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702}ProtectTokens registered.
+[6/6/21 0:19:05:630 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ findWsseSecurityHeaderBlockl header == null
+[6/6/21 0:19:05:631 PDT] 00000052 SystemOut                                                    O @TJJ findWsseSecurityHeaderBlockl header == null
+[6/6/21 0:19:05:633 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ findWsseSecurityHeaderBlockl doCreate == true
+[6/6/21 0:19:05:633 PDT] 00000052 SystemOut                                                    O @TJJ findWsseSecurityHeaderBlockl doCreate == true
+[6/6/21 0:19:05:634 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [soap:Header: null]
+[6/6/21 0:19:05:635 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:05:636 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ findWsseSecurityHeaderBlockl doCreate == true
+[6/6/21 0:19:05:636 PDT] 00000052 SystemOut                                                    O @TJJ findWsseSecurityHeaderBlockl doCreate == true
+[6/6/21 0:19:05:639 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [wsse:Security: null]
+[6/6/21 0:19:05:640 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:05:640 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [wsse:Security: null]
+[6/6/21 0:19:05:641 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:05:831 PDT] 00000052 .cxf.ws.security.wss4j.policyhandlers.AbstractBindingBuilder I insertAfter:  child = [wsse:UsernameToken: null] sib = [wsu:Timestamp: null]
+[6/6/21 0:19:05:831 PDT] 00000052 .cxf.ws.security.wss4j.policyhandlers.AbstractBindingBuilder I insertAfter:  secHeader.getSecurityHeader() = [wsse:Security: null]
+[6/6/21 0:19:05:908 PDT] 00000052 SystemOut                                                    O From CommonPasswordCallback.java, using the callbacks:[Lorg.apache.ws.security.WSPasswordCallback;@49b9e822
+[6/6/21 0:19:05:910 PDT] 00000052 SystemOut                                                    O From CommonPasswordCallback.java: id:soaprequester
+[6/6/21 0:19:05:911 PDT] 00000052 SystemOut                                                    O CommonPasswordCallback: Getting signaturePassword id:soaprequester
+[6/6/21 0:19:05:912 PDT] 00000052 SystemOut                                                    O From CommonPasswordCallback.java: signaturePassword:client
+[6/6/21 0:19:05:918 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [wsse:BinarySecurityToken: null]
+[6/6/21 0:19:05:918 PDT] 00000052 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:05:997 PDT] 00000052 cxf.services.X509AsyncService.X509AsyncPort.UrnX509AsyncType I Outbound Message
+---------------------------
+ID: 2
+Address: http://localhost:8010/x509aSync/X509AsyncService
+Encoding: UTF-8
+Content-Type: text/xml
+Headers: {Accept=[*/*], SOAPAction=[""]}
+Payload: <?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1">
+      <wsse:BinarySecurityToken EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" wsu:Id="X509-8EB9E742F658B1C23C16229639459183">MIICQzCCAaygAwIBAgIGFeCIncryMA0GCSqGSIb3DQEBBQUAME4xCzAJBgNVBAYTAkpQMREwDwYDVQQIEwhLYW5hZ2F3YTEMMAoGA1UEChMDSUJNMQwwCgYDVQQLEwNUUkwxEDAOBgNVBAMTB0ludCBDQTIwHhcNMDgwODA2MTc0NjMwWhcNMjMwODA4MTc0NjMwWjBUMQswCQYDVQQGEwJKUDERMA8GA1UECBMIS2FuYWdhd2ExDDAKBgNVBAoTA0lCTTEMMAoGA1UECxMDVFJMMRYwFAYDVQQDEw1TT0FQUmVxdWVzdGVyMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCzBc0xs5Ttf8r//00pmuFP2yrLaQECRV02tw0j8NeK0oNN1mnwGPhm2X2ia0Q5bPU1eGTA1tNrOAlNTjCFNQ5witfw2bwkGeiEVi6bpMCjB0/4CUIzhCIUxzwgOfRmU0FB2Jvk6ci0fLDw4WJSP35vfhRcYYqhlnVrY4Cv0K0WRwIDAQABoyYwJDARBgNVHQ4ECgQIQZOb+ZiiTuYwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQDP+AgWlniBYQqRi9ZO++EYfAEv9e2eEC2ScipiVry3WZ1FIWvbbiNgbAUJz1SjdBJCHMs2a2tHrU+0+vuWs4ZE9mJqYqALKQIe7Cfhqb/nF+ww+T8eBSbuNywRywZ6ugc7iFI5wI+hrNTCHHnbW8lQ9JYmdnDtzwkRtEEsQAAZig==</wsse:BinarySecurityToken>
+      <wsu:Timestamp wsu:Id="TS-8EB9E742F658B1C23C16229639458311">
+        <wsu:Created>2021-06-06T07:19:05.831Z</wsu:Created>
+        <wsu:Expires>2021-06-06T07:24:05.831Z</wsu:Expires>
+      </wsu:Timestamp>
+      <wsse:UsernameToken wsu:Id="UsernameToken-8EB9E742F658B1C23C16229639458312">
+        <wsse:Username>user1</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">security</wsse:Password>
+      </wsse:UsernameToken>
+      <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-8EB9E742F658B1C23C16229639459346">
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+            <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+          </ds:CanonicalizationMethod>
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+          <ds:Reference URI="#TS-8EB9E742F658B1C23C16229639458311">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>DRvg6zrXWO/KXXcdYCidDSMRbs8=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Id--2035597246">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>95mR9TtTOwvbUQ6nzhX8bUNMx68=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#TS-8EB9E742F658B1C23C16229639458311">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>DRvg6zrXWO/KXXcdYCidDSMRbs8=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#UsernameToken-8EB9E742F658B1C23C16229639458312">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>K+AaF2gU+id1by4R73xW3Up+Dqo=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#X509-8EB9E742F658B1C23C16229639459183">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>meZJZj2+pk7fR9HVp1MfVWVd/v0=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>Wl1fWJkKpAVG2NK6TVvnZRez7F9/g/95kQpMRr3dYpswPy7ymuEjgfXyYJhcvoqUc+hASD8hOBIWvDBtr0eaj6Ynn5oNKmdzpdyK8dKmZIG+3JSN2KJwqRkAr4nXZiR1J9hkwiL3cxN1OY+wf9asTvwo5Xh6j8fYT2GSYgUhxQA=</ds:SignatureValue>
+        <ds:KeyInfo Id="KI-8EB9E742F658B1C23C16229639459184">
+          <wsse:SecurityTokenReference wsu:Id="STR-8EB9E742F658B1C23C16229639459185">
+            <wsse:Reference URI="#X509-8EB9E742F658B1C23C16229639459183" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+          </wsse:SecurityTokenReference>
+        </ds:KeyInfo>
+      </ds:Signature>
+    </wsse:Security>
+  </soap:Header>
+  <soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Id--2035597246">
+    <ns2:requestString xmlns:ns2="http://x509async.wssecfvt.test/types">
+      <stringreq>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body xmlns="http://x509async.wssecfvt.test/types"&gt;&lt;invokeAsync&gt;WSSECFVT Simple Soap Msg&lt;/invokeAsync&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</stringreq>
+    </ns2:requestString>
+  </soap:Body>
+</soap:Envelope>
+--------------------------------------
+[6/6/21 0:19:05:997 PDT] 00000052 SystemOut                                                    O In CxfX509AsyncSvcClient, Non-Blocking Case
+[6/6/21 0:19:05:997 PDT] 00000052 SystemOut                                                    O In CxfX509AsyncSvcClient, thread sleep ... and waitCount: 0
+[6/6/21 0:19:06:016 PDT] 00000055 cxf.services.X509AsyncService.X509AsyncPort.UrnX509AsyncType I Inbound Message
+----------------------------
+ID: 3
+Address: http://localhost:8010/x509aSync/X509AsyncService
+Encoding: UTF-8
+Http-Method: POST
+Content-Type: text/xml; charset=UTF-8
+Headers: {Accept=[*/*], Cache-Control=[no-cache], connection=[keep-alive], content-type=[text/xml; charset=UTF-8], Host=[localhost:8010], Pragma=[no-cache], SOAPAction=[""], transfer-encoding=[chunked], User-Agent=[Apache CXF 2.6.2]}
+Payload: <?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1">
+      <wsse:BinarySecurityToken EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" wsu:Id="X509-8EB9E742F658B1C23C16229639459183">MIICQzCCAaygAwIBAgIGFeCIncryMA0GCSqGSIb3DQEBBQUAME4xCzAJBgNVBAYTAkpQMREwDwYDVQQIEwhLYW5hZ2F3YTEMMAoGA1UEChMDSUJNMQwwCgYDVQQLEwNUUkwxEDAOBgNVBAMTB0ludCBDQTIwHhcNMDgwODA2MTc0NjMwWhcNMjMwODA4MTc0NjMwWjBUMQswCQYDVQQGEwJKUDERMA8GA1UECBMIS2FuYWdhd2ExDDAKBgNVBAoTA0lCTTEMMAoGA1UECxMDVFJMMRYwFAYDVQQDEw1TT0FQUmVxdWVzdGVyMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCzBc0xs5Ttf8r//00pmuFP2yrLaQECRV02tw0j8NeK0oNN1mnwGPhm2X2ia0Q5bPU1eGTA1tNrOAlNTjCFNQ5witfw2bwkGeiEVi6bpMCjB0/4CUIzhCIUxzwgOfRmU0FB2Jvk6ci0fLDw4WJSP35vfhRcYYqhlnVrY4Cv0K0WRwIDAQABoyYwJDARBgNVHQ4ECgQIQZOb+ZiiTuYwDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQUFAAOBgQDP+AgWlniBYQqRi9ZO++EYfAEv9e2eEC2ScipiVry3WZ1FIWvbbiNgbAUJz1SjdBJCHMs2a2tHrU+0+vuWs4ZE9mJqYqALKQIe7Cfhqb/nF+ww+T8eBSbuNywRywZ6ugc7iFI5wI+hrNTCHHnbW8lQ9JYmdnDtzwkRtEEsQAAZig==</wsse:BinarySecurityToken>
+      <wsu:Timestamp wsu:Id="TS-8EB9E742F658B1C23C16229639458311">
+        <wsu:Created>2021-06-06T07:19:05.831Z</wsu:Created>
+        <wsu:Expires>2021-06-06T07:24:05.831Z</wsu:Expires>
+      </wsu:Timestamp>
+      <wsse:UsernameToken wsu:Id="UsernameToken-8EB9E742F658B1C23C16229639458312">
+        <wsse:Username>user1</wsse:Username>
+        <wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">security</wsse:Password>
+      </wsse:UsernameToken>
+      <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-8EB9E742F658B1C23C16229639459346">
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+            <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+          </ds:CanonicalizationMethod>
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+          <ds:Reference URI="#TS-8EB9E742F658B1C23C16229639458311">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>DRvg6zrXWO/KXXcdYCidDSMRbs8=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Id--2035597246">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>95mR9TtTOwvbUQ6nzhX8bUNMx68=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#TS-8EB9E742F658B1C23C16229639458311">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>DRvg6zrXWO/KXXcdYCidDSMRbs8=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#UsernameToken-8EB9E742F658B1C23C16229639458312">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>K+AaF2gU+id1by4R73xW3Up+Dqo=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#X509-8EB9E742F658B1C23C16229639459183">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>meZJZj2+pk7fR9HVp1MfVWVd/v0=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>Wl1fWJkKpAVG2NK6TVvnZRez7F9/g/95kQpMRr3dYpswPy7ymuEjgfXyYJhcvoqUc+hASD8hOBIWvDBtr0eaj6Ynn5oNKmdzpdyK8dKmZIG+3JSN2KJwqRkAr4nXZiR1J9hkwiL3cxN1OY+wf9asTvwo5Xh6j8fYT2GSYgUhxQA=</ds:SignatureValue>
+        <ds:KeyInfo Id="KI-8EB9E742F658B1C23C16229639459184">
+          <wsse:SecurityTokenReference wsu:Id="STR-8EB9E742F658B1C23C16229639459185">
+            <wsse:Reference URI="#X509-8EB9E742F658B1C23C16229639459183" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+          </wsse:SecurityTokenReference>
+        </ds:KeyInfo>
+      </ds:Signature>
+    </wsse:Security>
+  </soap:Header>
+  <soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Id--2035597246">
+    <ns2:requestString xmlns:ns2="http://x509async.wssecfvt.test/types">
+      <stringreq>&lt;soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"&gt;&lt;soapenv:Header/&gt;&lt;soapenv:Body xmlns="http://x509async.wssecfvt.test/types"&gt;&lt;invokeAsync&gt;WSSECFVT Simple Soap Msg&lt;/invokeAsync&gt;&lt;/soapenv:Body&gt;&lt;/soapenv:Envelope&gt;</stringreq>
+    </ns2:requestString>
+  </soap:Body>
+</soap:Envelope>
+--------------------------------------
+[6/6/21 0:19:06:381 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [ds:Signature: null]
+[6/6/21 0:19:06:381 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:06:381 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [ds:KeyInfo: null]
+[6/6/21 0:19:06:381 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:06:397 PDT] 00000055 org.apache.ws.security.validate.SignatureTrustValidator      W No Subject DN Certificate Constraints were defined. This could be a security issue
+[6/6/21 0:19:06:681 PDT] 00000055 SystemOut                                                    O In X509AsyncWebSvc, Executing operation invoke
+[6/6/21 0:19:06:681 PDT] 00000055 SystemOut                                                    O getVersion: 
+[6/6/21 0:19:06:681 PDT] 00000055 SystemOut                                                    O test.wssecfvt.x509async.types.RequestString@19f80386
+[6/6/21 0:19:06:735 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ findWsseSecurityHeaderBlockl header == null
+[6/6/21 0:19:06:735 PDT] 00000055 SystemOut                                                    O @TJJ findWsseSecurityHeaderBlockl header == null
+[6/6/21 0:19:06:735 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ findWsseSecurityHeaderBlockl doCreate == true
+[6/6/21 0:19:06:735 PDT] 00000055 SystemOut                                                    O @TJJ findWsseSecurityHeaderBlockl doCreate == true
+[6/6/21 0:19:06:735 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [soap:Header: null]
+[6/6/21 0:19:06:735 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:06:735 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ findWsseSecurityHeaderBlockl doCreate == true
+[6/6/21 0:19:06:735 PDT] 00000055 SystemOut                                                    O @TJJ findWsseSecurityHeaderBlockl doCreate == true
+[6/6/21 0:19:06:735 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [wsse:Security: null]
+[6/6/21 0:19:06:735 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:06:735 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [wsse:Security: null]
+[6/6/21 0:19:06:735 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:06:750 PDT] 00000055 SystemOut                                                    O From CommonPasswordCallback.java, using the callbacks:[Lorg.apache.ws.security.WSPasswordCallback;@72ddb5ee
+[6/6/21 0:19:06:750 PDT] 00000055 SystemOut                                                    O From CommonPasswordCallback.java: id:soapprovider
+[6/6/21 0:19:06:750 PDT] 00000055 SystemOut                                                    O CommonPasswordCallback: Getting signaturePassword id:soapprovider
+[6/6/21 0:19:06:750 PDT] 00000055 SystemOut                                                    O From CommonPasswordCallback.java: signaturePassword:server
+[6/6/21 0:19:06:750 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [wsse:BinarySecurityToken: null]
+[6/6/21 0:19:06:750 PDT] 00000055 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:06:766 PDT] 00000055 cxf.services.X509AsyncService.X509AsyncPort.UrnX509AsyncType I Outbound Message
+---------------------------
+ID: 3
+Encoding: UTF-8
+Content-Type: text/xml
+Headers: {}
+Payload: <?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1">
+      <wsse:BinarySecurityToken EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" wsu:Id="X509-8EB9E742F658B1C23C16229639467508">MIICQjCCAaugAwIBAgIGFeB152reMA0GCSqGSIb3DQEBBQUAME4xCzAJBgNVBAYTAkpQMREwDwYDVQQIEwhLYW5hZ2F3YTEMMAoGA1UEChMDSUJNMQwwCgYDVQQLEwNUUkwxEDAOBgNVBAMTB0ludCBDQTIwHhcNMDgwODA2MTc0NjMwWhcNMjMwODA4MTc0NjMwWjBTMQswCQYDVQQGEwJKUDERMA8GA1UECBMIS2FuYWdhd2ExDDAKBgNVBAoTA0lCTTEMMAoGA1UECxMDVFJMMRUwEwYDVQQDEwxTT0FQUHJvdmlkZXIwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMychNOcHLrersJ7T6x+BEFpxbg4CikeUBVDt4ckgXQOv0WxD9qh4GIDw90fNEffUVY6E11ZukrZq38YFzMKszwzrr6oe70kbr3QLJUR0fwrVXUIhkP2cJdB8bw9mVcFOqsQqT1Y6WVzb/yy+Xmm1rkPRjCXZAi3tHNdlTT7/T9FAgMBAAGjJjAkMBEGA1UdDgQKBAhMtA+f4SX/ajAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAHeNCNcykU/etRJgKBpK9AmVwbgBuKsK2rNbwrEAvEI65iPcc+ErSgpMy6iF2mafWPHJRcoFUpcnJX90Bgt7eyPc8Qcj1bNSkbbIMxwTzWHeGx+pvR2Q3jVqN3ihNEptUGCrMF5awcTTQqMNtBou4o1S43NURgTHSA8NiV/vO3kc</wsse:BinarySecurityToken>
+      <wsu:Timestamp wsu:Id="TS-8EB9E742F658B1C23C16229639467357">
+        <wsu:Created>2021-06-06T07:19:06.735Z</wsu:Created>
+        <wsu:Expires>2021-06-06T07:24:06.735Z</wsu:Expires>
+      </wsu:Timestamp>
+      <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-8EB9E742F658B1C23C162296394675011">
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+            <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+          </ds:CanonicalizationMethod>
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+          <ds:Reference URI="#TS-8EB9E742F658B1C23C16229639467357">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>Hc+XyFUyFiSKcQK/zDjHf3WAp18=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Id-2063332816">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>jFPw/iknl+AQ6RKcXccjv+vAboA=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#TS-8EB9E742F658B1C23C16229639467357">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>Hc+XyFUyFiSKcQK/zDjHf3WAp18=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#X509-8EB9E742F658B1C23C16229639467508">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>9pPQJhEa4FADR8dKjQ+IQheVsX4=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>JxnoUSi8YRoek+b1WmNoiNAI3QtLHSoL5W5gsR2Pvv23b8uijRqyTC8XMByP1XzypC56ya5Es09qaTIvfK+F5dMuu/isymF7QaW8N8YVu77WnI7axWpO+G5YgncXYPGKtd3kxqtS/EhesAn6W93nMzmhjFrb24qK1NpiT5oxwXY=</ds:SignatureValue>
+        <ds:KeyInfo Id="KI-8EB9E742F658B1C23C16229639467509">
+          <wsse:SecurityTokenReference wsu:Id="STR-8EB9E742F658B1C23C162296394675010">
+            <wsse:Reference URI="#X509-8EB9E742F658B1C23C16229639467508" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+          </wsse:SecurityTokenReference>
+        </ds:KeyInfo>
+      </ds:Signature>
+    </wsse:Security>
+  </soap:Header>
+  <soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Id-2063332816">
+    <ns2:responseString xmlns:ns2="http://x509async.wssecfvt.test/types" xmlns:ns3="http://x509async.wssecfvt.test"/>
+  </soap:Body>
+</soap:Envelope>
+--------------------------------------
+[6/6/21 0:19:06:781 PDT] 00000051 cxf.services.X509AsyncService.X509AsyncPort.UrnX509AsyncType I Inbound Message
+----------------------------
+ID: 2
+Response-Code: 200
+Encoding: UTF-8
+Content-Type: text/xml; charset=UTF-8
+Headers: {Content-Language=[en-US], Content-Length=[4705], content-type=[text/xml; charset=UTF-8], Date=[Sun, 06 Jun 2021 07:19:06 GMT], X-Powered-By=[Servlet/3.1]}
+Payload: <?xml version="1.0" encoding="UTF-8"?><soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <soap:Header>
+    <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" soap:mustUnderstand="1">
+      <wsse:BinarySecurityToken EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3" wsu:Id="X509-8EB9E742F658B1C23C16229639467508">MIICQjCCAaugAwIBAgIGFeB152reMA0GCSqGSIb3DQEBBQUAME4xCzAJBgNVBAYTAkpQMREwDwYDVQQIEwhLYW5hZ2F3YTEMMAoGA1UEChMDSUJNMQwwCgYDVQQLEwNUUkwxEDAOBgNVBAMTB0ludCBDQTIwHhcNMDgwODA2MTc0NjMwWhcNMjMwODA4MTc0NjMwWjBTMQswCQYDVQQGEwJKUDERMA8GA1UECBMIS2FuYWdhd2ExDDAKBgNVBAoTA0lCTTEMMAoGA1UECxMDVFJMMRUwEwYDVQQDEwxTT0FQUHJvdmlkZXIwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAMychNOcHLrersJ7T6x+BEFpxbg4CikeUBVDt4ckgXQOv0WxD9qh4GIDw90fNEffUVY6E11ZukrZq38YFzMKszwzrr6oe70kbr3QLJUR0fwrVXUIhkP2cJdB8bw9mVcFOqsQqT1Y6WVzb/yy+Xmm1rkPRjCXZAi3tHNdlTT7/T9FAgMBAAGjJjAkMBEGA1UdDgQKBAhMtA+f4SX/ajAPBgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBBQUAA4GBAHeNCNcykU/etRJgKBpK9AmVwbgBuKsK2rNbwrEAvEI65iPcc+ErSgpMy6iF2mafWPHJRcoFUpcnJX90Bgt7eyPc8Qcj1bNSkbbIMxwTzWHeGx+pvR2Q3jVqN3ihNEptUGCrMF5awcTTQqMNtBou4o1S43NURgTHSA8NiV/vO3kc</wsse:BinarySecurityToken>
+      <wsu:Timestamp wsu:Id="TS-8EB9E742F658B1C23C16229639467357">
+        <wsu:Created>2021-06-06T07:19:06.735Z</wsu:Created>
+        <wsu:Expires>2021-06-06T07:24:06.735Z</wsu:Expires>
+      </wsu:Timestamp>
+      <ds:Signature xmlns:ds="http://www.w3.org/2000/09/xmldsig#" Id="SIG-8EB9E742F658B1C23C162296394675011">
+        <ds:SignedInfo>
+          <ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+            <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+          </ds:CanonicalizationMethod>
+          <ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"/>
+          <ds:Reference URI="#TS-8EB9E742F658B1C23C16229639467357">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>Hc+XyFUyFiSKcQK/zDjHf3WAp18=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#Id-2063332816">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList=""/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>jFPw/iknl+AQ6RKcXccjv+vAboA=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#TS-8EB9E742F658B1C23C16229639467357">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="wsse soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>Hc+XyFUyFiSKcQK/zDjHf3WAp18=</ds:DigestValue>
+          </ds:Reference>
+          <ds:Reference URI="#X509-8EB9E742F658B1C23C16229639467508">
+            <ds:Transforms>
+              <ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#">
+                <ec:InclusiveNamespaces xmlns:ec="http://www.w3.org/2001/10/xml-exc-c14n#" PrefixList="soap"/>
+              </ds:Transform>
+            </ds:Transforms>
+            <ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/>
+            <ds:DigestValue>9pPQJhEa4FADR8dKjQ+IQheVsX4=</ds:DigestValue>
+          </ds:Reference>
+        </ds:SignedInfo>
+        <ds:SignatureValue>JxnoUSi8YRoek+b1WmNoiNAI3QtLHSoL5W5gsR2Pvv23b8uijRqyTC8XMByP1XzypC56ya5Es09qaTIvfK+F5dMuu/isymF7QaW8N8YVu77WnI7axWpO+G5YgncXYPGKtd3kxqtS/EhesAn6W93nMzmhjFrb24qK1NpiT5oxwXY=</ds:SignatureValue>
+        <ds:KeyInfo Id="KI-8EB9E742F658B1C23C16229639467509">
+          <wsse:SecurityTokenReference wsu:Id="STR-8EB9E742F658B1C23C162296394675010">
+            <wsse:Reference URI="#X509-8EB9E742F658B1C23C16229639467508" ValueType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-x509-token-profile-1.0#X509v3"/>
+          </wsse:SecurityTokenReference>
+        </ds:KeyInfo>
+      </ds:Signature>
+    </wsse:Security>
+  </soap:Header>
+  <soap:Body xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" wsu:Id="Id-2063332816">
+    <ns2:responseString xmlns:ns2="http://x509async.wssecfvt.test/types" xmlns:ns3="http://x509async.wssecfvt.test"/>
+  </soap:Body>
+</soap:Envelope>
+--------------------------------------
+[6/6/21 0:19:06:850 PDT] 00000051 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [ds:Signature: null]
+[6/6/21 0:19:06:850 PDT] 00000051 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:06:850 PDT] 00000051 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement node == [ds:KeyInfo: null]
+[6/6/21 0:19:06:850 PDT] 00000051 org.apache.ws.security.util.WSSecurityUtil                   I @TJJ getDomElement isJava9SAAJ == false
+[6/6/21 0:19:06:850 PDT] 00000051 org.apache.ws.security.validate.SignatureTrustValidator      W No Subject DN Certificate Constraints were defined. This could be a security issue
+[6/6/21 0:19:07:035 PDT] 00000052 SystemOut                                                    O In CxfX509AsyncSvcClient, response is done and waitCount: 1
+[6/6/21 0:19:07:035 PDT] 00000052 SystemOut                                                    O after responseRef.get 
+[6/6/21 0:19:07:035 PDT] 00000052 SystemOut                                                    O Answer received: null
+[6/6/21 0:19:08:282 PDT] 0000002c com.ibm.ws.kernel.launch.internal.ServerCommandListener      A CWWKE0055I: Server shutdown requested on Sunday, June 6, 2021 at 12:19 AM. The server com.ibm.ws.wssecurity_fat.x509async is shutting down.
+[6/6/21 0:19:08:298 PDT] 00000067 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  A CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[6/6/21 0:19:08:319 PDT] 00000055 com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint has stopped listening for requests on host *  (IPv6) port 8010.
+[6/6/21 0:19:08:319 PDT] 00000055 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://10.21.46.246:8010/x509aSync/
+[6/6/21 0:19:08:319 PDT] 00000055 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://10.21.46.246:8010/x509aSyncclient/
+[6/6/21 0:19:09:337 PDT] 00000067 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  I CWWKE1101I: Server quiesce complete.
+[6/6/21 0:19:09:384 PDT] 00000051 com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [x509aSyncclient] [/x509aSyncclient] [x509AsyncSvcClient]: Destroy successful.
+[6/6/21 0:19:09:384 PDT] 00000051 com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [x509aSyncclient] [/x509aSyncclient] [com.ibm.ws.wssecurity.fat.x509Asyncclient.CxfX509AsyncSvcClient]: Destroy successful.
+[6/6/21 0:19:09:421 PDT] 00000051 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application x509aSyncclient has stopped successfully.
+[6/6/21 0:19:09:421 PDT] 0000004f com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [x509aSync] [/x509aSync] [X509AsyncService]: Destroy successful.
+[6/6/21 0:19:09:437 PDT] 0000004f com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application x509aSync has stopped successfully.
+[6/6/21 0:19:09:619 PDT] 00000067 com.ibm.ws.security.ready.internal.SecurityReadyServiceImpl  I CWWKS0009I: The security service has stopped.
+[6/6/21 0:19:09:621 PDT] 00000067 ibm.ws.security.authentication.internal.jaas.JAASServiceImpl I CWWKS1124I: The collective authentication plugin with class name NullCollectiveAuthenticationPlugin has been deactivated. 
+[6/6/21 0:19:09:852 PDT] 00000067 org.apache.cxf.bus.osgi.CXFActivator                         I Removing the extensions for bundle 129
+[6/6/21 0:19:09:852 PDT] 00000067 org.apache.cxf.bus.osgi.CXFActivator                         I Removing the extensions for bundle 131
+[6/6/21 0:19:09:852 PDT] 00000067 org.apache.cxf.bus.osgi.CXFActivator                         I Removing the extensions for bundle 136
+[6/6/21 0:19:09:852 PDT] 00000067 org.apache.cxf.bus.osgi.CXFActivator                         I Removing the extensions for bundle 138
+[6/6/21 0:19:09:852 PDT] 00000067 org.apache.cxf.bus.osgi.CXFActivator                         I Removing the extensions for bundle 117
+[6/6/21 0:19:09:852 PDT] 00000067 org.apache.cxf.bus.osgi.CXFActivator                         I Removing the extensions for bundle 151
+[6/6/21 0:19:09:852 PDT] 00000067 org.apache.cxf.bus.osgi.CXFActivator                         I Removing the extensions for bundle 121
+[6/6/21 0:19:09:852 PDT] 00000067 org.apache.cxf.bus.osgi.CXFActivator                         I Removing the extensions for bundle 153
+[6/6/21 0:19:09:852 PDT] 00000067 org.apache.cxf.bus.osgi.CXFActivator                         I Removing the extensions for bundle 155
+[6/6/21 0:19:09:852 PDT] 00000067 org.apache.cxf.bus.osgi.CXFActivator                         I Removing the extensions for bundle 127
+[6/6/21 0:19:10:378 PDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: The server com.ibm.ws.wssecurity_fat.x509async stopped after 36.673 seconds.
