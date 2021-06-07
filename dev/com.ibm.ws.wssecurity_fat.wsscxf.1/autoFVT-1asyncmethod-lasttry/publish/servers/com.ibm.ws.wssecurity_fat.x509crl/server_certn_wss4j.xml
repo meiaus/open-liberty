@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<server description="Generation date: Sun Jun 06 00:19:26 PDT 2021">
+    <featureManager>
+        <feature>jsp-2.3</feature>
+        <feature>servlet-4.0</feature>
+        <feature>usr:wsseccbh-2.0</feature>
+        <feature>ssl-1.0</feature>
+        <feature>jaxws-2.3</feature>
+        <feature>appSecurity-3.0</feature>
+        <feature>wssecurity-1.1</feature>
+    </featureManager>
+    <basicRegistry realm="customRealm" id="basic">
+        <user name="user1" password="security"/>
+        <user name="user2" password="security"/>
+        <user name="test1" password="test1"/>
+        <user name="test2" password="test2"/>
+        <user name="user1pw" password="pw8server"/>
+    </basicRegistry>
+    <application location="${server.config.dir}/testApps/x509crl.war" name="x509crl" type="war" id="x509crl">
+        <classloader>
+            <privateLibrary>
+                <fileset dir="${server.config.dir}/testApps" includes="*.jar" scanInterval="5s"/>
+			</privateLibrary>
+        </classloader>
+    </application>
+    <application location="${server.config.dir}/testApps/x509crlclient.war" name="x509crlclient" type="war" id="x509crlclient">
+        <classloader>
+            <privateLibrary>
+                <fileset dir="${server.config.dir}/testApps" includes="*.jar" scanInterval="5s"/>
+			</privateLibrary>
+        </classloader>
+    </application>
+    <include location="../fatTestPorts.xml"/>
+    <wsSecurityProvider id="default" ws-security.callback-handler="com.ibm.ws.wssecurity.example.cbhwss4j.CommonPasswordCallbackWss4j" ws-security.enableRevocation="true" ws-security.return.security.error="true" ws-security.signature.username="myx509certN">
+        <signatureProperties org.apache.ws.security.crypto.merlin.file="${server.config.dir}/myx509.ks" org.apache.ws.security.crypto.merlin.keystore.alias="myx509certN" org.apache.ws.security.crypto.merlin.keystore.password="myx509" org.apache.ws.security.crypto.merlin.keystore.type="jks" org.apache.ws.security.crypto.merlin.truststore.file="${server.config.dir}/myx509.ks" org.apache.ws.security.crypto.merlin.truststore.password="myx509" org.apache.ws.security.crypto.merlin.x509crl.file="${server.config.dir}/myx509crl.crl"/>
+	</wsSecurityProvider>
+    <wsSecurityClient id="default" ws-security.callback-handler="com.ibm.ws.wssecurity.example.cbhwss4j.CommonPasswordCallbackWss4j" ws-security.password="security" ws-security.signature.username="myx509certN" ws-security.username="user1">
+        <signatureProperties org.apache.ws.security.crypto.merlin.file="${server.config.dir}/myx509.ks" org.apache.ws.security.crypto.merlin.keystore.alias="myx509certN" org.apache.ws.security.crypto.merlin.keystore.password="myx509" org.apache.ws.security.crypto.merlin.keystore.type="jks"/>
+	</wsSecurityClient>
+    <javaPermission actions="read" className="java.io.FilePermission" name="ALL FILES"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap.ver1_1"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.util"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap.name"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap.impl"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="http://localhost:8010/x509crl/X509CrlNotInListService"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="http://localhost:8010/x509crl/X509CrlInListService"/>
+    <javaPermission actions="*" className="org.osgi.framework.AdminPermission" name="*"/>
+    <javaPermission className="java.security.SecurityPermission" name="org.apache.xml.security.register"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.sun.net.www.protocol.c"/>
+    <javaPermission className="java.lang.RuntimePermission" name="getClassLoader"/>
+</server>

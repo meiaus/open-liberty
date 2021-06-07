@@ -279,12 +279,12 @@
     <dependency>
       <groupId>com.sun.istack</groupId>
       <artifactId>istack-commons-runtime</artifactId>
-      <version>4.0.0-M3</version>
+      <version>4.0.1</version>
     </dependency>
     <dependency>
       <groupId>com.sun.istack</groupId>
       <artifactId>istack-commons-tools</artifactId>
-      <version>4.0.0-M3</version>
+      <version>4.0.1</version>
     </dependency>
     <dependency>
       <groupId>com.sun.mail</groupId>
@@ -294,12 +294,12 @@
     <dependency>
       <groupId>com.sun.xml.bind.external</groupId>
       <artifactId>relaxng-datatype</artifactId>
-      <version>3.0.0-M4</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>com.sun.xml.bind.external</groupId>
       <artifactId>rngom</artifactId>
-      <version>3.0.0-M3</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>com.sun.xml.bind</groupId>
@@ -784,7 +784,7 @@
     <dependency>
       <groupId>jakarta.xml.bind</groupId>
       <artifactId>jakarta.xml.bind-api</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>jakarta.xml.soap</groupId>
@@ -1877,6 +1877,11 @@
       <version>3.0</version>
     </dependency>
     <dependency>
+      <groupId>org.eclipse.microprofile.health</groupId>
+      <artifactId>microprofile-health-api</artifactId>
+      <version>3.1-RC2</version>
+    </dependency>
+    <dependency>
       <groupId>org.eclipse.microprofile.jwt</groupId>
       <artifactId>microprofile-jwt-auth-api</artifactId>
       <version>1.0</version>
@@ -2139,37 +2144,37 @@
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>codemodel</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-core</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-jxc</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-runtime</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>jaxb-xjc</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>txw2</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jaxb</groupId>
       <artifactId>xsom</artifactId>
-      <version>3.0.0</version>
+      <version>3.0.1</version>
     </dependency>
     <dependency>
       <groupId>org.glassfish.jersey.bundles.repackaged</groupId>

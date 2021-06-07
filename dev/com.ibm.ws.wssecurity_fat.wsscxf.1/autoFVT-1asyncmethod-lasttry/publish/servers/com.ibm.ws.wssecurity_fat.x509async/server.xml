@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<server description="Generation date: Sun Jun 06 00:19:22 PDT 2021">
+    <featureManager>
+        <feature>jsp-2.3</feature>
+        <feature>servlet-4.0</feature>
+        <feature>usr:wsseccbh-2.0</feature>
+        <feature>ssl-1.0</feature>
+        <feature>jaxws-2.3</feature>
+        <feature>appSecurity-3.0</feature>
+        <feature>wssecurity-1.1</feature>
+    </featureManager>
+    <basicRegistry realm="customRealm" id="basic">
+        <user name="user1" password="security"/>
+        <user name="user2" password="security"/>
+        <user name="test1" password="test1"/>
+        <user name="test2" password="test2"/>
+        <user name="user1pw" password="pw8server"/>
+    </basicRegistry>
+    <include location="../fatTestPorts.xml"/>
+    <wsSecurityProvider id="default" ws-security.callback-handler="com.ibm.ws.wssecurity.example.cbh.CommonPasswordCallback" ws-security.signature.username="soapprovider">
+        <signatureProperties org.apache.ws.security.crypto.merlin.file="${server.config.dir}/dsig-receiver.ks" org.apache.ws.security.crypto.merlin.keystore.alias="soapprovider" org.apache.ws.security.crypto.merlin.keystore.password="server" org.apache.ws.security.crypto.merlin.keystore.type="jks"/>
+	</wsSecurityProvider>
+    <wsSecurityClient id="default" ws-security.callback-handler="com.ibm.ws.wssecurity.example.cbh.CommonPasswordCallback" ws-security.password="security" ws-security.signature.username="soaprequester" ws-security.username="user1">
+        <signatureProperties org.apache.ws.security.crypto.merlin.file="${server.config.dir}/dsig-sender.ks" org.apache.ws.security.crypto.merlin.keystore.alias="soaprequester" org.apache.ws.security.crypto.merlin.keystore.password="client" org.apache.ws.security.crypto.merlin.keystore.type="jks"/>
+	</wsSecurityClient>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap.ver1_1"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.util"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap.name"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap.impl"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="http://localhost:8010/x509aSync/X509AsyncService"/>
+</server>

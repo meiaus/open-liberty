@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 IBM Corporation and others.
+ * Copyright (c) 2020, 2021 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -14,6 +14,8 @@ package com.ibm.ws.wssecurity.fat.cxf.usernametoken;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+//4/2021
+import java.io.File;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
@@ -44,6 +46,7 @@ import componenttest.annotation.Server;
 import componenttest.custom.junit.runner.FATRunner;
 import componenttest.custom.junit.runner.Mode;
 import componenttest.custom.junit.runner.Mode.TestMode;
+import componenttest.topology.impl.LibertyFileManager;
 import componenttest.topology.impl.LibertyServer;
 
 //Added 11/2020
@@ -81,7 +84,12 @@ public class SSLTestCommon {
     final static String badHttpsToken = "HttpsToken could not be asserted";
     final static String badHttpsClientCert = "Could not send Message.";
     final static String replayAttack = "An error happened processing a Username Token \"A replay attack has been detected\"";
+    //2/2021
+    final static String replayAttackNew = "An error happened processing a Username Token: \"A replay attack has been detected\""; //@AV999
+
     final static String timestampReqButMissing = "An invalid security token was provided (WSSecurityEngine: Invalid timestamp";
+    //2/2021
+    final static String morethanOneTimestamp = "BSP:R3227: A SECURITY_HEADER MUST NOT contain more than one TIMESTAMP"; //@AV999
 
     // "RequireClientCertificate is set, but no local certificates were negotiated.";
 
@@ -291,4 +299,19 @@ public class SSLTestCommon {
                                        + strMethod);
         System.err.println("*****************************" + strMethod);
     }
+
+    //4/2021
+    public static void copyServerXml(String copyFromFile) throws Exception {
+
+        try {
+            String serverFileLoc = (new File(server.getServerConfigurationPath().replace('\\', '/'))).getParent();
+            Log.info(thisClass, "copyServerXml", "Copying: " + copyFromFile
+                                                 + " to " + serverFileLoc);
+            LibertyFileManager.copyFileIntoLiberty(server.getMachine(),
+                                                   serverFileLoc, "server.xml", copyFromFile);
+        } catch (Exception ex) {
+            ex.printStackTrace(System.out);
+        }
+    }
+
 }

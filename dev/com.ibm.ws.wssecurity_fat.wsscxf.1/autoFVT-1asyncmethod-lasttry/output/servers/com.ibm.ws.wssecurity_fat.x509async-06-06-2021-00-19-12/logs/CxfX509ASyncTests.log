@@ -1,0 +1,61 @@
+Launching com.ibm.ws.wssecurity_fat.x509async (Open Liberty 21.0.0.6/wlp-1.0.53.202106011250) on IBM J9 VM, version 8.0.6.30 - pwa6480sr6fp30-20210507_01(SR6 FP30) (en_US)
+[AUDIT   ] CWWKE0001I: The server com.ibm.ws.wssecurity_fat.x509async has been launched.
+[AUDIT   ] CWWKG0028A: Processing included configuration resource: C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\fatTestPorts.xml
+[AUDIT   ] CWWKG0028A: Processing included configuration resource: C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\fatTestCommon.xml
+[WARNING ] CWWKG0101W: The configuration with the persisted identity (PID) com.ibm.ws.wssecurity.sig.config_60 is bound to the bundle com.ibm.ws.wssecurity. The configuration is not visible to other bundles.  
+[WARNING ] CWWKG0101W: The configuration with the persisted identity (PID) com.ibm.ws.wssecurity.sig.config_70 is bound to the bundle com.ibm.ws.wssecurity. The configuration is not visible to other bundles.  
+[AUDIT   ] CWWKZ0058I: Monitoring dropins for applications.
+[AUDIT   ] TE9900A: Timed Exit Enabled
+[AUDIT   ] CWWKS4104A: LTPA keys created in 1.301 seconds. LTPA key file: C:/Users/Administrator/libertyGit/open-liberty/dev/build.image/wlp/usr/servers/com.ibm.ws.wssecurity_fat.x509async/resources/security/ltpa.keys
+[AUDIT   ] CWWKT0016I: Web application available (default_host): http://10.21.46.246:8010/x509aSyncclient/
+[AUDIT   ] CWWKZ0001I: Application x509aSyncclient started in 1.579 seconds.
+[AUDIT   ] CWWKT0016I: Web application available (default_host): http://10.21.46.246:8010/x509aSync/
+[AUDIT   ] CWWKZ0001I: Application x509aSync started in 2.179 seconds.
+[AUDIT   ] CWWKF0012I: The server installed the following features: [appSecurity-2.0, distributedMap-1.0, jaxb-2.2, jaxws-2.2, jndi-1.0, jsp-2.2, servlet-3.1, ssl-1.0, timedexit-1.0, usr:wsseccbh-1.0, wsSecurity-1.1].
+[AUDIT   ] CWWKF0011I: The com.ibm.ws.wssecurity_fat.x509async server is ready to run a smarter planet. The com.ibm.ws.wssecurity_fat.x509async server started in 28.369 seconds.
+[WARNING ] No assertion builder for type {http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702}ProtectTokens registered.
+************************ testCxfAsyncInvokeNonBlocking ************************
+After request.getParameter CBHVersion: null
+clientWsdl::end
+rawWsdl::rawWsdl
+wsdlLocation: http://localhost:8010/x509aSync/X509AsyncService?wsdl
+wsdlUrl: http://localhost:8010/x509aSync/X509AsyncService?wsdl
+Will send appropriate message for msgId: 
+In X509AsyncService case
+CBHVersion: 
+Setting id: user1 with password: security
+Service Client request Header: [soapenv:Header: null]
+Service Client request Body: [soapenv:Body: null]
+Outgoing msg contains: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"><soapenv:Header/><soapenv:Body xmlns="http://x509async.wssecfvt.test/types"><invokeAsync>WSSECFVT Simple Soap Msg</invokeAsync></soapenv:Body></soapenv:Envelope>
+[WARNING ] No assertion builder for type {http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702}ProtectTokens registered.
+@TJJ findWsseSecurityHeaderBlockl header == null
+@TJJ findWsseSecurityHeaderBlockl doCreate == true
+@TJJ findWsseSecurityHeaderBlockl doCreate == true
+From CommonPasswordCallback.java, using the callbacks:[Lorg.apache.ws.security.WSPasswordCallback;@49b9e822
+From CommonPasswordCallback.java: id:soaprequester
+CommonPasswordCallback: Getting signaturePassword id:soaprequester
+From CommonPasswordCallback.java: signaturePassword:client
+In CxfX509AsyncSvcClient, Non-Blocking Case
+In CxfX509AsyncSvcClient, thread sleep ... and waitCount: 0
+[WARNING ] No Subject DN Certificate Constraints were defined. This could be a security issue
+In X509AsyncWebSvc, Executing operation invoke
+getVersion: 
+test.wssecfvt.x509async.types.RequestString@19f80386
+@TJJ findWsseSecurityHeaderBlockl header == null
+@TJJ findWsseSecurityHeaderBlockl doCreate == true
+@TJJ findWsseSecurityHeaderBlockl doCreate == true
+From CommonPasswordCallback.java, using the callbacks:[Lorg.apache.ws.security.WSPasswordCallback;@72ddb5ee
+From CommonPasswordCallback.java: id:soapprovider
+CommonPasswordCallback: Getting signaturePassword id:soapprovider
+From CommonPasswordCallback.java: signaturePassword:server
+[WARNING ] No Subject DN Certificate Constraints were defined. This could be a security issue
+In CxfX509AsyncSvcClient, response is done and waitCount: 1
+after responseRef.get 
+Answer received: null
+[AUDIT   ] CWWKE0055I: Server shutdown requested on Sunday, June 6, 2021 at 12:19 AM. The server com.ibm.ws.wssecurity_fat.x509async is shutting down.
+[AUDIT   ] CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[AUDIT   ] CWWKT0017I: Web application removed (default_host): http://10.21.46.246:8010/x509aSync/
+[AUDIT   ] CWWKT0017I: Web application removed (default_host): http://10.21.46.246:8010/x509aSyncclient/
+[AUDIT   ] CWWKZ0009I: The application x509aSyncclient has stopped successfully.
+[AUDIT   ] CWWKZ0009I: The application x509aSync has stopped successfully.
+[AUDIT   ] CWWKE0036I: The server com.ibm.ws.wssecurity_fat.x509async stopped after 36.673 seconds.

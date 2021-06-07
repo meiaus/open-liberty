@@ -1,0 +1,12 @@
+
+arg0=com.ibm.ws.wssecurity_fat.x509async
+arg1=--status
+exit=1
+
+                 Java home:  C:\java8_8.0.6.30\ibm-java-sdk-80-win-x86_64\sdk\jre
+              Install root:  C:/Users/Administrator/libertyGit/open-liberty/dev/build.image/wlp/
+          System libraries:  C:/Users/Administrator/libertyGit/open-liberty/dev/build.image/wlp/lib/
+                 User root:  C:/Users/Administrator/libertyGit/open-liberty/dev/build.image/wlp/usr/
+                    Config:  C:/Users/Administrator/libertyGit/open-liberty/dev/build.image/wlp/usr/servers/com.ibm.ws.wssecurity_fat.x509async/
+                    Output:  C:/Users/Administrator/libertyGit/open-liberty/dev/build.image/wlp/usr/servers/com.ibm.ws.wssecurity_fat.x509async/
+

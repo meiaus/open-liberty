@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 IBM Corporation and others.
+ * Copyright (c) 2021 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -37,13 +37,14 @@ import componenttest.topology.impl.LibertyServer;
 
 //Note the potential collided factor in testCxfClientNoWsse(), when full mode annotation is used
 //12/2020 Setting this test class for LITE bucket
-//@Mode(TestMode.FULL)
 //Added 10/2020
 @RunWith(FATRunner.class)
 public class CxfNoWssecTests {
 
-    //Added 10/2020
-    @Server("com.ibm.ws.wssecurity_fat")
+    //2/2021
+    static final private String serverName = "com.ibm.ws.wssecurity_fat";
+    @Server(serverName)
+
     public static LibertyServer server;
 
     //Orig from CL

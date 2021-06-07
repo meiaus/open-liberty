@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<server description="Generation date: Sun Jun 06 00:19:31 PDT 2021">
+    <featureManager>
+        <feature>jsp-2.3</feature>
+        <feature>servlet-4.0</feature>
+        <feature>usr:wsseccbh-2.0</feature>
+        <feature>ssl-1.0</feature>
+        <feature>jaxws-2.3</feature>
+        <feature>appSecurity-3.0</feature>
+        <feature>wssecurity-1.1</feature>
+    </featureManager>
+    <basicRegistry realm="customRealm" id="basic">
+        <user name="user1" password="security"/>
+        <user name="user2" password="security"/>
+        <user name="test1" password="test1"/>
+        <user name="test2" password="test2"/>
+        <user name="test3" password="test3"/>
+        <user name="test4" password="test4"/>
+        <user name="admin" password="admin"/>
+        <user name="bob" password="bob"/>
+        <user name="joe" password="joe"/>
+        <user name="user1pw" password="pw8server"/>
+    </basicRegistry>
+    <include location="../fatTestPorts.xml"/>
+    <sslDefault sslRef="DefaultSSLSettings"/>
+    <ssl keyStoreRef="myKeyStore" trustStoreRef="myTrustStore" id="DefaultSSLSettings" clientAuthenticationSupported="true"/>
+    <keyStore location="${server.config.dir}/key.jks" password="Liberty" type="jks" id="myKeyStore"/>
+    <keyStore location="${server.config.dir}/sslServerTrust.jks" password="LibertyServer" type="jks" id="myTrustStore"/>
+    <wsSecurityClient id="default" ws-security.encryption.username="x509ServerSecondCert" ws-security.password="{xor}LDo8Ki02KyY=" ws-security.username="user1">
+        <encryptionProperties org.apache.ws.security.crypto.merlin.keystore.alias="x509ServerSecondCert" org.apache.ws.security.crypto.merlin.truststore.file="${server.config.dir}/x509ClientSecond.jks" org.apache.ws.security.crypto.merlin.truststore.password="LibertyX509Client2" org.apache.ws.security.crypto.merlin.truststore.type="jks"/>
+		
+		
+		
+	</wsSecurityClient>
+    <wsSecurityProvider id="default" ws-security.callback-handler="com.ibm.ws.wssecurity.example.cbh.CommonPasswordCallback">
+        <encryptionProperties org.apache.ws.security.crypto.merlin.file="${server.config.dir}/x509ServerSecond.jks" org.apache.ws.security.crypto.merlin.keystore.alias="x509ServerSecond" org.apache.ws.security.crypto.merlin.keystore.password="LibertyX509Server2" org.apache.ws.security.crypto.merlin.keystore.type="jks"/>
+	</wsSecurityProvider>
+    <javaPermission actions="read" className="java.io.FilePermission" name="ALL FILES"/>
+    <javaPermission actions="read" className="java.util.PropertyPermission" name="javax.xml.soap.MessageFactory"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap.ver1_1"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.util"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap.name"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.com.sun.xml.internal.messaging.saaj.soap.impl"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="https://localhost:8020/endsuptokens/EndSupTokensService0"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="http://localhost:8010/endsuptokens/EndSupTokensService4"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="https://localhost:8020/endsuptokens/EndSupTokensService0Body"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="http://localhost:8010/endsuptokens/EndSupTokensService5"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="https://localhost:8020/endsuptokens/EndSupTokensService0BodyElement"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="http://localhost:8010/endsuptokens/EndSupTokensService6"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="https://localhost:8020/endsuptokens/EndSupTokensService1"/>
+    <javaPermission actions="POST:AcceptSOAPActionUser-Agent" className="java.net.URLPermission" name="http://localhost:8010/endsuptokens/EndSupTokensService7"/>
+    <javaPermission actions="read" className="java.util.PropertyPermission" name="java.home"/>
+    <javaPermission actions="read" className="java.util.PropertyPermission" name="javax.xml.soap.MetaFactory"/>
+    <javaPermission actions="*" className="org.osgi.framework.AdminPermission" name="*"/>
+    <javaPermission className="java.security.SecurityPermission" name="org.apache.xml.security.register"/>
+    <javaPermission className="java.lang.RuntimePermission" name="accessClassInPackage.sun.net.www.protocol.c"/>
+    <SSLDefault sslRef="DefaultSSLSettings"/>
+</server>

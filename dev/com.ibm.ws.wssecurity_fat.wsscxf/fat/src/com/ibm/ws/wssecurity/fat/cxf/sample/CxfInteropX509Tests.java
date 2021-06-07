@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 IBM Corporation and others.
+ * Copyright (c) 2020, 2021 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -15,6 +15,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.File;
+import java.util.Set;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -24,6 +25,7 @@ import org.junit.runner.RunWith;
 
 //Added 11/2020
 import com.ibm.websphere.simplicity.ShrinkHelper;
+import com.ibm.websphere.simplicity.config.ServerConfiguration;
 import com.ibm.websphere.simplicity.log.Log;
 import com.ibm.ws.wssecurity.fat.utils.common.SharedTools;
 import com.meterware.httpunit.GetMethodWebRequest;
@@ -31,6 +33,8 @@ import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebRequest;
 import com.meterware.httpunit.WebResponse;
 
+//4/2021
+import componenttest.annotation.AllowedFFDC;
 //Added 11/2020
 import componenttest.annotation.Server;
 import componenttest.custom.junit.runner.FATRunner;
@@ -72,19 +76,32 @@ public class CxfInteropX509Tests {
     @BeforeClass
     public static void setUp() throws Exception {
 
-        copyServerXml(System.getProperty("user.dir") + File.separator + server.getPathToAutoFVTNamedServer() + "server_x509.xml");
+        //Orig:
+        //copyServerXml(System.getProperty("user.dir") + File.separator + server.getPathToAutoFVTNamedServer() + "server_x509.xml");
         // rename_webcontent(server);
         String thisMethod = "setup";
 
         //orig from CL
         //SharedTools.installCallbackHandler(server);
 
+        //2/2021
+        ServerConfiguration config = server.getServerConfiguration();
+        Set<String> features = config.getFeatureManager().getFeatures();
+        if (features.contains("usr:wsseccbh-1.0")) {
+            server.copyFileToLibertyInstallRoot("usr/extension/lib/", "bundles/com.ibm.ws.wssecurity.example.cbh.jar");
+            server.copyFileToLibertyInstallRoot("usr/extension/lib/features/", "features/wsseccbh-1.0.mf");
+            copyServerXml(System.getProperty("user.dir") + File.separator + server.getPathToAutoFVTNamedServer() + "server_x509.xml");
+        }
+        if (features.contains("usr:wsseccbh-2.0")) {
+            server.copyFileToLibertyInstallRoot("usr/extension/lib/", "bundles/com.ibm.ws.wssecurity.example.cbhwss4j.jar");
+            server.copyFileToLibertyInstallRoot("usr/extension/lib/features/", "features/wsseccbh-2.0.mf");
+            copyServerXml(System.getProperty("user.dir") + File.separator + server.getPathToAutoFVTNamedServer() + "server_x509_wss4j.xml");
+        }
+
         //Added 11/2020
         //apps/webcontent and apps/WSSampleSeiClient are checked in the repo publish/server folder
         ShrinkHelper.defaultDropinApp(server, "WSSampleSei", "com.ibm.was.wssample.sei.echo");
         ShrinkHelper.defaultDropinApp(server, "webcontentprovider", "com.ibm.was.cxfsample.sei.echo");
-        server.copyFileToLibertyInstallRoot("usr/extension/lib/", "bundles/com.ibm.ws.wssecurity.example.cbh.jar");
-        server.copyFileToLibertyInstallRoot("usr/extension/lib/features/", "features/wsseccbh-1.0.mf");
 
         server.addInstalledAppForValidation("WSSampleSei");
         server.addInstalledAppForValidation("webcontentprovider");
@@ -129,6 +146,8 @@ public class CxfInteropX509Tests {
         return;
     }
 
+    //4/2021
+    @AllowedFFDC(value = { "java.net.MalformedURLException", "java.lang.ClassNotFoundException" })
     @Test
     public void testEcho21Service() throws Exception {
         String thisMethod = "testEcho21Service";
@@ -145,7 +164,7 @@ public class CxfInteropX509Tests {
                         thisMethod, // String thisMethod,
                         WSSampleClientUrl,
                         serviceClientUrl + "/WSSampleSei/Echo21Service", // the serviceURL of the WebServiceProvider. This needs to be updated in the Echo wsdl files
-                        "Echo21Service", // Secnerio name. For distinguish the testing scenario
+                        "Echo21Service", // Scenario name. For distinguish the testing scenario
                         "echo", // testing type: ping, echo, async
                         "1", // msgcount: how many times to run the test from service-client to  service-provider
                         "soap11", // options: soap11 or soap12 or else (will be added soap11 to its end)
@@ -158,6 +177,8 @@ public class CxfInteropX509Tests {
         return;
     }
 
+    //4/2021
+    @AllowedFFDC(value = { "java.net.MalformedURLException" })
     @Test
     public void testEcho22Service() throws Exception {
         String thisMethod = "testEcho22Service";
@@ -174,7 +195,7 @@ public class CxfInteropX509Tests {
                         thisMethod, // String thisMethod,
                         WSSampleClientUrl,
                         serviceClientUrl + "/WSSampleSei/Echo22Service", // the serviceURL of the WebServiceProvider. This needs to be updated in the Echo wsdl files
-                        "Echo22Service", // Secnerio name. For distinguish the testing scenario
+                        "Echo22Service", // Scenario name. For distinguish the testing scenario
                         "echo", // testing type: ping, echo, async
                         "1", // msgcount: how many times to run the test from service-client to  service-provider
                         "soap11", // options: soap11 or soap12 or else (will be added soap11 to its end)
@@ -187,6 +208,8 @@ public class CxfInteropX509Tests {
         return;
     }
 
+    //4/2021
+    @AllowedFFDC(value = { "java.net.MalformedURLException" })
     @Test
     public void testEcho23Service() throws Exception {
         String thisMethod = "testEcho23Service";
@@ -203,7 +226,7 @@ public class CxfInteropX509Tests {
                         thisMethod, // String thisMethod,
                         WSSampleClientUrl,
                         serviceClientUrl + "/WSSampleSei/Echo23Service", // the serviceURL of the WebServiceProvider. This needs to be updated in the Echo wsdl files
-                        "Echo23Service", // Secnerio name. For distinguish the testing scenario
+                        "Echo23Service", // Scenario name. For distinguish the testing scenario
                         "echo", // testing type: ping, echo, async
                         "1", // msgcount: how many times to run the test from service-client to  service-provider
                         "soap11", // options: soap11 or soap12 or else (will be added soap11 to its end)
@@ -229,7 +252,7 @@ public class CxfInteropX509Tests {
                                String thisMethod, // thisMethod testing Method
                                String clientUrl, // The serviceClient URL
                                String uriString, // serviceURL the serviceURL of the WebServiceProvider. This needs to be updated in the Echo wsdl files
-                               String scenarioString, // scenario   Secnerio name. For distinguish the testing scenario
+                               String scenarioString, // scenario   Scenario name. For distinguish the testing scenario
                                String testString, // test       testing type: ping, echo, async
                                String cntString, // msgcount   msgcount: how many times to run the test from service-client to  service-provider
                                String optionsString, // options    options: soap11 or soap12 or else (will be added soap11 to its end)
@@ -252,7 +275,7 @@ public class CxfInteropX509Tests {
             request = new GetMethodWebRequest(clientUrl);
 
             request.setParameter("serviceURL", uriString); // serviceURL the serviceURL of the WebServiceProvider. This needs to be updated in the Echo wsdl files
-            request.setParameter("scenario", scenarioString); // scenario   Secnerio name. For distinguish the testing scenario
+            request.setParameter("scenario", scenarioString); // scenario   Scenario name. For distinguish the testing scenario
             request.setParameter("test", testString); // test       testing type: ping, echo, async
             request.setParameter("msgcount", cntString); // msgcount   msgcount: how many times to run the test from service-client to  service-provider
             request.setParameter("options", optionsString); // options    options: soap11 or soap12 or else (will be added soap11 to its end)
@@ -308,6 +331,12 @@ public class CxfInteropX509Tests {
         }
         //orig from CL
         //SharedTools.unInstallCallbackHandler(server);
+
+        //2/2021
+        server.deleteFileFromLibertyInstallRoot("usr/extension/lib/bundles/com.ibm.ws.wssecurity.example.cbh.jar");
+        server.deleteFileFromLibertyInstallRoot("usr/extension/lib/features/wsseccbh-1.0.mf");
+        server.deleteFileFromLibertyInstallRoot("usr/extension/lib/bundles/com.ibm.ws.wssecurity.example.cbhwss4j.jar");
+        server.deleteFileFromLibertyInstallRoot("usr/extension/lib/features/wsseccbh-2.0.mf");
     }
 
     private static void printMethodName(String strMethod) {

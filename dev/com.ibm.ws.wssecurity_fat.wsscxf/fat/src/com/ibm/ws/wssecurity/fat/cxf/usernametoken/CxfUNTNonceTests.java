@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2020 IBM Corporation and others.
+ * Copyright (c) 2020, 2021 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
  * which accompanies this distribution, and is available at
@@ -31,6 +31,7 @@ import com.meterware.httpunit.WebConversation;
 import com.meterware.httpunit.WebRequest;
 import com.meterware.httpunit.WebResponse;
 
+import componenttest.annotation.AllowedFFDC;
 //Added 10/2020
 import componenttest.annotation.Server;
 import componenttest.custom.junit.runner.FATRunner;
@@ -91,6 +92,8 @@ public class CxfUNTNonceTests {
      *
      */
 
+    //4/2021
+    @AllowedFFDC(value = { "java.lang.ClassNotFoundException" })
     @Test
     public void testUntNonceAndCreated() throws Exception {
 

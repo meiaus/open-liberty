@@ -1,0 +1,12 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      1      6/6/21 0:20:58:972 PDT      6/6/21 0:20:58:972 PDT java.lang.ClassNotFoundException org.apache.wss4j.dom.util.WSSecurityUtil 104
+                                                                            - C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\com.ibm.ws.wssecurity_fat.x509async\logs\ffdc\ffdc_21.06.06_00.20.58.0.log
+     1      1      6/6/21 0:21:03:157 PDT      6/6/21 0:21:03:157 PDT java.net.MalformedURLException org.apache.cxf.rt.security.utils.SecurityUtils 117
+                                                                            - C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\com.ibm.ws.wssecurity_fat.x509async\logs\ffdc\ffdc_21.06.06_00.21.03.0.log
+     2      1      6/6/21 0:21:05:096 PDT      6/6/21 0:21:05:096 PDT java.lang.ClassNotFoundException org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor 650
+                                                                            - C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\com.ibm.ws.wssecurity_fat.x509async\logs\ffdc\ffdc_21.06.06_00.21.05.0.log
+     3      1      6/6/21 0:21:05:302 PDT      6/6/21 0:21:05:302 PDT org.apache.wss4j.common.ext.WSSecurityException org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor 387
+                                                                            - C:\Users\Administrator\libertyGit\open-liberty\dev\build.image\wlp\usr\servers\com.ibm.ws.wssecurity_fat.x509async\logs\ffdc\ffdc_21.06.06_00.21.05.1.log
+------+------+---------------------------+---------------------------+---------------------------
