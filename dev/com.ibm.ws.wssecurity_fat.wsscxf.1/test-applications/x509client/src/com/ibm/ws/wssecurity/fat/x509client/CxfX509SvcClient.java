@@ -96,6 +96,7 @@ public class CxfX509SvcClient extends HttpServlet {
             servicePort = new QName(SERVICE_NS, request.getParameter("servicePort"));
             if (httpSecurePortNum == null || httpSecurePortNum.length() == 0) {
                 thePort = httpPortNum;
+                httpProtocal = "http:"; 
             } else {
                 thePort = httpSecurePortNum;
                 httpProtocal = "https:";
